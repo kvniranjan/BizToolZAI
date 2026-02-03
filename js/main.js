@@ -2,6 +2,23 @@
 // BizToolz AI — Main JavaScript
 // ========================================
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+// TODO: Replace with your actual Firebase configuration
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -56,7 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const email = newsletterForm.querySelector('input[type="email"]').value;
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            const email = emailInput.value;
             const button = newsletterForm.querySelector('button');
             const originalText = button.innerHTML;
             
@@ -64,19 +82,36 @@ document.addEventListener('DOMContentLoaded', () => {
             button.innerHTML = 'Subscribing...';
             button.disabled = true;
             
-            // Simulate API call (replace with actual endpoint)
-            setTimeout(() => {
+            try {
+                // Save to Firestore
+                await addDoc(collection(db, "subscribers"), {
+                    email: email,
+                    createdAt: serverTimestamp(),
+                    source: window.location.pathname
+                });
+
                 button.innerHTML = '✓ Subscribed!';
                 button.style.background = '#10b981';
+                emailInput.value = ''; // Clear input
                 
                 // Reset after 3 seconds
                 setTimeout(() => {
                     button.innerHTML = originalText;
                     button.style.background = '';
                     button.disabled = false;
-                    newsletterForm.reset();
                 }, 3000);
-            }, 1000);
+
+            } catch (error) {
+                console.error("Error adding document: ", error);
+                button.innerHTML = 'Error. Try again.';
+                button.style.background = '#ef4444';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                    button.disabled = false;
+                }, 3000);
+            }
         });
     }
 
