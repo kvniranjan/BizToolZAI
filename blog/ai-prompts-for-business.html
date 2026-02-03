@@ -61,6 +61,15 @@
             background: #f1f5f9;
             color: #0f172a;
         }
+        .category-header {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -87,77 +96,412 @@
             <div class="container">
                 <div class="article-meta">
                     <span class="article-category">Resource</span>
-                    <span class="article-date">February 2026</span>
+                    <span class="article-date">Updated: February 2026</span>
                 </div>
                 <h1>50 AI Prompts for Business Professionals</h1>
-                <p class="article-subtitle">Stop staring at a blank page. Here is a curated collection of copy-paste prompts for email, strategy, and analysis.</p>
+                <p class="article-subtitle">Stop staring at a blank page. Here is a curated collection of copy-paste prompts for email, strategy, marketing, and data analysis.</p>
             </div>
         </header>
 
         <div class="container">
             <div class="article-content">
-                <p>The difference between a generic AI answer and a useful one is the <strong>Context</strong>. These prompts are designed to give the AI a role, a task, and constraints.</p>
+                <p>The difference between a generic AI answer and a useful one is the <strong>Context</strong>. These prompts are designed to give the AI a role, a task, and constraints. Browse by category below.</p>
 
-                <h2>📧 Email & Communication</h2>
+                <!-- SECTION 1: EMAIL -->
+                <h2 class="category-header">📧 Email & Communication</h2>
                 
                 <div class="prompt-card">
-                    <div class="prompt-header">
-                        <span class="prompt-tag">Cold Outreach</span>
-                        <button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button>
-                    </div>
+                    <div class="prompt-header"><span class="prompt-tag">Cold Outreach</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
                     <div class="prompt-text">Act as an expert B2B sales copywriter. Write a 3-email cold outreach sequence to [Target Persona] at [Industry] companies. 
-The goal is to book a 15-minute demo of [Your Product].
-Constraint: Keep each email under 100 words. Use a friendly but professional tone. Focus on the pain point of [Specific Pain Point].</div>
+Goal: Book a 15-minute demo of [Your Product].
+Constraint: Keep each email under 100 words. Tone: Friendly professional. Focus on [Specific Pain Point].</div>
                 </div>
 
                 <div class="prompt-card">
-                    <div class="prompt-header">
-                        <span class="prompt-tag">Difficult Client Update</span>
-                        <button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button>
-                    </div>
+                    <div class="prompt-header"><span class="prompt-tag">Delaying Bad News</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
                     <div class="prompt-text">Draft an email to a client explaining that the project deadline will be delayed by 3 days due to [Reason].
 Tone: Empathetic but firm.
+Structure: 1. State news directly. 2. Explain reason briefly. 3. Propose new date. 4. Offer small value-add.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Salary Negotiation</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I have received a job offer for [Role] at [Company]. The salary offered is [Amount], but my target is [Target Amount]. Write a counter-offer email expressing excitement for the role but referencing my experience in [Key Skill] and market rates to justify the higher request. Tone: Grateful, confident, collaborative.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Meeting Recap</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Take the following rough notes from a meeting and turn them into a professional "Meeting Minutes" email.
+Include: Attendees, Key Decisions, Action Items (with owners), and Next Meeting Date.
+Notes: [Paste Notes Here]</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Polite Refusal (Hiring)</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Write a polite rejection email to a job candidate who interviewed for [Role]. They were strong in [Skill A] but we chose someone with more [Skill B] experience. Keep it encouraging and professional.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Introduction Request</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Write a short email to [Contact Name], a mutual connection, asking for an introduction to [Target Name] at [Target Company]. Explain that I want to discuss [Topic] and why it would be valuable for them.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Feedback Request</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Draft an email to my manager asking for constructive feedback on my recent performance on [Project Name]. Ask specifically about areas for improvement in leadership and technical execution. Tone: Growth-oriented and humble.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Creative OOO</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Write a witty and creative Out of Office auto-responder. I am away for [Reason/Holiday] until [Date].
+If urgent, contact [Colleague Name].
+Include a fun fact or a link to a helpful resource to keep them entertained while I'm gone.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Ghosting Follow-Up</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I sent a proposal to a prospect 10 days ago and haven't heard back. Write a gentle "bump" email.
+Do not sound desperate.
+Subject line options: "Is this still a priority?" or "Quick check-in".
+Keep it under 50 words.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Apology for Mistake</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I sent the wrong attachment to a client. Write a quick apology email.
+Format: Acknowledge error, attach correct file immediately, apologize for confusion. Keep it very short.</div>
+                </div>
+
+
+                <!-- SECTION 2: STRATEGY -->
+                <h2 class="category-header">🧠 Strategy & Planning</h2>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Pre-Mortem Analysis</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">We are launching [Project Name]. Act as a pessimistic risk analyst. Conduct a "Pre-Mortem".
+Assume the project has failed 6 months from now. List the top 10 reasons why, categorized by (Technical, Market, Operational).
+For each, suggest one mitigation strategy.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">SWOT Analysis</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Perform a SWOT analysis for [Company Name/Product], a competitor in the [Industry] space.
+Based on public knowledge, identify Strengths, Weaknesses, Opportunities, and Threats.
+Focus specifically on their recent move to [Recent Action/Feature].</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Blue Ocean Strategy</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I run a [Business Type]. Help me apply Blue Ocean Strategy to find an uncontested market space.
+1. What factors does the industry take for granted?
+2. What factors should be reduced well below industry standards?
+3. What factors should be raised well above industry standards?
+4. What factors should be created that the industry has never offered?</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">First Principles</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I am trying to solve [Problem]. Break this problem down using First Principles thinking.
+Deconstruct it into its fundamental truths or "atomic" elements, disregarding analogies ("how it's usually done"). Then reconstruct a solution from the ground up.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Porter’s 5 Forces</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Analyze the [Specific Industry] industry using Porter's Five Forces framework:
+1. Threat of new entrants
+2. Threat of substitutes
+3. Bargaining power of customers
+4. Bargaining power of suppliers
+5. Competitive rivalry
+Provide a summary rating (High/Med/Low) for each.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Value Prop Canvas</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Create a Value Proposition Canvas for [Product Name] targeting [Customer Segment].
+List:
+- Customer Jobs (what they are trying to do)
+- Pains (risks, obstacles)
+- Gains (outcomes they want)
+Then map our features to these Pains and Gains.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">OKR Generator</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Help me draft OKRs (Objectives and Key Results) for the [Department Name] team for Q3.
+The main company goal is [Company Goal].
+Suggest 3 Objectives, and for each objective, list 3 measurable Key Results (with numbers/percentages).</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Scenario Planning</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Imagine 3 future scenarios for the [Industry] market over the next 5 years:
+1. Optimistic (Tech boom)
+2. Pessimistic (Recession/Regulation)
+3. Status Quo
+For each scenario, describe how our company, which does [Business Activity], should prepare today.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Lean Canvas</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Draft a 1-page Lean Canvas for a new startup idea: [Idea Description].
+Outline: Problem, Solution, Unique Value Prop, Unfair Advantage, Customer Segments, Key Metrics, Channels, Cost Structure, and Revenue Streams.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Decision Matrix</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I need to choose between [Option A] and [Option B].
+Create a decision matrix.
+Suggest 5 criteria to judge them by (e.g., Cost, Speed, Scalability).
+Assign a weight (1-5) to each criterion.
+Help me score them hypothetically to see which wins.</div>
+                </div>
+
+
+                <!-- SECTION 3: MARKETING -->
+                <h2 class="category-header">📣 Marketing & Content</h2>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Blog Post Outline</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Create a detailed outline for a 1,500-word blog post titled "[Title]".
+Target Audience: [Audience].
+Include: H2s, H3s, key points for each section, and a suggested "Call to Action" at the end.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Social Media Calendar</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Generate a 1-week social media content calendar for LinkedIn for a [Role/Industry].
+Topics should rotate between: Industry News, Personal Story, actionable Advice, and Case Study.
+Format: Day, Topic, Post Hook, and Image Idea.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">SEO Meta Data</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Write 5 variations of an SEO Title Tag (max 60 chars) and Meta Description (max 160 chars) for a webpage about [Topic].
+Keywords to include: [Keyword 1], [Keyword 2].
+Make them click-worthy.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">YouTube Script Hook</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Write 3 distinct intros (hooks) for a YouTube video about [Video Topic].
+1. The "Story" hook.
+2. The "Controversial Opinion" hook.
+3. The "Direct Promise" hook.
+Keep each under 30 seconds of speaking time.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Ad Copy Variants</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Write 3 Facebook Ad primary text options for [Product].
+- Option 1: Focus on FOMO (Fear Of Missing Out).
+- Option 2: Focus on Social Proof (Testimonials).
+- Option 3: Focus on Logical Benefit/Savings.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Landing Page H1s</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Generate 10 headline (H1) ideas for a landing page selling [Product/Service].
+Use different formulas:
+- The "How to" headline
+- The "Result in Time" headline
+- The "Direct Benefit" headline
+- The "Pain-Agitate-Solve" headline</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Customer Personas</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Create a detailed customer persona for [Product]. Name: "Manager Mike".
+Include: Demographics, Job Title, Goals, Frustrations, Brands he loves, and Where he hangs out online.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Newsletter Subject Lines</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I am sending a newsletter about [Topic]. Write 10 catchy subject lines.
+Mix styles: Curiosity gap, Benefit-driven, Urgency, and Personal.
+Keep them under 50 characters so they don't get cut off on mobile.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Competitor Analysis (Content)</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Analyze the writing style of this text: [Paste Text].
+Describe the tone, sentence structure, and vocabulary level.
+Then, rewrite the following paragraph to match that exact style: [Your Paragraph].</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Viral Hooks</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Turn this boring sentence into 5 viral Twitter/X hooks:
+Original: "Consistenty is important for success."
+Make them punchy, use numbers, or challenge conventional wisdom.</div>
+                </div>
+
+
+                <!-- SECTION 4: PRODUCTIVITY -->
+                <h2 class="category-header">⚡ Productivity & Workflow</h2>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Pareto 80/20</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I want to learn [Skill] fast. Apply the Pareto Principle.
+What are the 20% of sub-skills that yield 80% of the results?
+Create a 4-week crash course based on this.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Eisenhower Matrix</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Here is my to-do list: [Paste List].
+Categorize these items into the Eisenhower Matrix:
+1. Urgent & Important (Do now)
+2. Not Urgent & Important (Schedule)
+3. Urgent & Not Important (Delegate)
+4. Not Urgent & Not Important (Delete)</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Time Blocking</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Create a daily schedule for a [Role] using the Time Blocking method.
+Work hours: 9 AM to 5 PM.
+Include blocks for Deep Work, Admin, Meetings, and Breaks.
+Ensure the most cognitive-heavy tasks are in the morning.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Meeting Agenda</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Create a tight agenda for a 30-minute meeting about [Topic].
+Allocated time:
+- 5 min: Context
+- 15 min: Discussion/Brainstorming
+- 10 min: Decisions & Next Steps
+List specific questions we must answer by the end.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Summarizer</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Summarize the following text into 3 bullet points.
+Constraint: Use simple language (Grade 8 reading level).
+Text: [Paste Text]</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">ELI5 (Explain Like I’m 5)</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Explain the concept of [Complex Topic, e.g., Blockchain] to me like I am a 5-year-old.
+Use analogies involving toys, food, or playgrounds. Avoid jargon.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">SMART Goals</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I have a vague goal: "I want to grow my business."
+Rewrite this into a SMART goal (Specific, Measurable, Achievable, Relevant, Time-bound).
+Give me 3 variations.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Habit Stacking</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I want to build a habit of [New Habit].
+Suggest 5 "Habit Stacking" recipes using my existing daily routine.
+Format: "After I [Current Habit], I will [New Habit]."
+(Current habits: Coffee, brushing teeth, opening laptop, lunch, closing laptop).</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Inbox Triage</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Act as an executive assistant. I will paste an email. Tell me:
+1. Does this require a reply? (Yes/No)
+2. Is it urgent? (High/Low)
+3. Draft a one-sentence reply if needed.
+Email: [Paste Email]</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">SOP Creator</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Write a Standard Operating Procedure (SOP) for [Task Name].
 Structure:
-1. State the news directly.
-2. Explain the reason briefly (no excuses).
-3. Propose the new delivery date.
-4. Offer a small value-add to make up for it.</div>
+- Objective
+- Tools Needed
+- Step-by-Step Instructions (numbered)
+- Common Pitfalls to Avoid
+- Definition of Done</div>
                 </div>
 
-                <h2>🧠 Strategy & Planning</h2>
+
+                <!-- SECTION 5: DATA -->
+                <h2 class="category-header">📊 Data & Analysis</h2>
 
                 <div class="prompt-card">
-                    <div class="prompt-header">
-                        <span class="prompt-tag">Pre-Mortem Analysis</span>
-                        <button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button>
-                    </div>
-                    <div class="prompt-text">We are about to launch [Project Name/Description]. 
-Act as a pessimistic risk analyst. Conduct a "Pre-Mortem" analysis.
-Assume the project has failed 6 months from now. List the top 10 likely reasons why it failed, categorized by (Technical, Market, Operational).
-For each risk, suggest one mitigation strategy.</div>
+                    <div class="prompt-header"><span class="prompt-tag">Excel Formula Gen</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I have a spreadsheet with Column A (Date) and Column B (Revenue).
+Write an Excel formula to sum revenue ONLY if the date is in "January 2024".
+Explain the logic.</div>
                 </div>
 
                 <div class="prompt-card">
-                    <div class="prompt-header">
-                        <span class="prompt-tag">Pareto Principle (80/20)</span>
-                        <button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button>
-                    </div>
-                    <div class="prompt-text">I want to learn [Skill/Topic] as fast as possible.
-Apply the Pareto Principle (80/20 rule).
-What are the 20% of sub-skills or concepts that will give me 80% of the results?
-Create a 4-week learning plan based on this.</div>
+                    <div class="prompt-header"><span class="prompt-tag">Regex Pattern</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Write a Regular Expression (Regex) to extract all email addresses from a text block.
+Ensure it captures emails with subdomains (e.g., name@mail.server.com).
+Provide the regex string and a brief explanation.</div>
                 </div>
 
-                <h2>📊 Data & Analysis</h2>
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">SQL Query Helper</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Write a SQL query to select the top 5 customers by total spend from two tables: 'users' (id, name) and 'orders' (user_id, amount).
+Use a LEFT JOIN.
+Order by total spend descending.</div>
+                </div>
 
                 <div class="prompt-card">
-                    <div class="prompt-header">
-                        <span class="prompt-tag">Excel Formula Generator</span>
-                        <button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button>
-                    </div>
-                    <div class="prompt-text">I have a spreadsheet with Column A (Date) and Column B (Sales Amount).
-Write an Excel formula to sum the sales for the current month only.
-Explain how the formula works.</div>
+                    <div class="prompt-header"><span class="prompt-tag">Python Pandas Cleaning</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I have a pandas DataFrame `df`.
+Column 'Price' contains strings like "$1,200.50" and "NA".
+Write a Python snippet to:
+1. Remove the '$' and ',' characters.
+2. Convert the column to numeric (coercing errors to NaN).
+3. Fill NaN values with the median.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Data Viz Ideas</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I have a dataset showing [Variables, e.g., Customer Age vs. Spend Amount].
+Suggest 3 ways to visualize this data to show the correlation.
+For each, explain why it is effective and what insight it reveals.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">KPI Selection</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I manage a [Team Type, e.g., Customer Support] team.
+Suggest 5 Key Performance Indicators (KPIs) we should track.
+Avoid vanity metrics. Focus on efficiency and customer satisfaction.
+For each KPI, define how it is calculated.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Trend Interpretation</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I will paste a list of monthly sales figures.
+Act as a data analyst.
+1. Calculate the Month-over-Month (MoM) growth rate.
+2. Identify any seasonality or outliers.
+3. Summarize the trend in one sentence.
+Data: [Paste Data]</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">JSON to CSV</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">I have a complex nested JSON file.
+Explain the step-by-step logic (pseudocode) to flatten this into a CSV format where each row is a unique record.
+Handle arrays within objects.</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Sentiment Analysis</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Analyze the sentiment of the following customer review.
+Classify as: Positive, Negative, or Neutral.
+Extract the main "topic" or feature mentioned.
+Review: "[Paste Review]"</div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header"><span class="prompt-tag">Explain Metric</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText)">Copy</button></div>
+                    <div class="prompt-text">Explain the difference between "Mean", "Median", and "Mode" to a non-technical stakeholder.
+Give a concrete example of when using the Mean would be misleading (e.g., salary data with one billionaire).</div>
                 </div>
 
                 <div class="cta-box" style="margin-top: 3rem;">
