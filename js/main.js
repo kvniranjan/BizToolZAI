@@ -7,12 +7,13 @@ import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.g
 
 // TODO: Replace with your actual Firebase configuration
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyANp3y8MNKSwB1S_leXT2NT7DeKab9AG58",
+    authDomain: "biztoolzai.firebaseapp.com",
+    projectId: "biztoolzai",
+    storageBucket: "biztoolzai.firebasestorage.app",
+    messagingSenderId: "106172488870",
+    appId: "1:106172488870:web:0fee94e6821a1059912867",
+    measurementId: "G-2YNJ0HMCDY"
 };
 
 // Initialize Firebase
