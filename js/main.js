@@ -116,6 +116,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Submit Tool Form Handler
+    const submitToolForm = document.getElementById('submit-tool-form');
+    if (submitToolForm) {
+        submitToolForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const button = submitToolForm.querySelector('button');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = 'Submitting...';
+            button.disabled = true;
+
+            const formData = {
+                toolName: document.getElementById('toolName').value,
+                toolUrl: document.getElementById('toolUrl').value,
+                category: document.getElementById('category').value,
+                pricing: document.getElementById('pricing').value,
+                tagline: document.getElementById('tagline').value,
+                description: document.getElementById('description').value,
+                contactEmail: document.getElementById('contactEmail').value,
+                affiliateProgram: document.getElementById('affiliateProgram').value,
+                submittedAt: serverTimestamp(),
+                status: 'pending' // pending review
+            };
+
+            try {
+                await addDoc(collection(db, "tool_submissions"), formData);
+                
+                // Show success UI (Replace form with message)
+                const container = document.querySelector('.submit-form');
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 3rem 0;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+                        <h2 style="margin-bottom: 1rem;">Submission Received!</h2>
+                        <p style="color: #475569; margin-bottom: 2rem;">Thanks for submitting <strong>${formData.toolName}</strong>. Our team will review it shortly.</p>
+                        <a href="/" class="btn btn-primary">Back to Home</a>
+                    </div>
+                `;
+                
+                // Optional: Trigger your own notification here if needed
+
+            } catch (error) {
+                console.error("Error submitting tool: ", error);
+                button.innerHTML = 'Error. Please try again.';
+                button.style.background = '#ef4444';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                    button.disabled = false;
+                }, 3000);
+            }
+        });
+    }
+
     // Animate elements on scroll
     const observerOptions = {
         threshold: 0.1,

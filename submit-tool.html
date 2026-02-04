@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit your AI tool to be featured on BizToolz AI. Get exposure to thousands of business professionals looking for the best AI solutions.">
+    <title>Submit Your AI Tool — BizToolz AI</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="canonical" href="https://biztoolzai.com/submit-tool.html">
+
+    <!-- GA4 Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YNJ0HMCDY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2YNJ0HMCDY');
+    </script>
+
+    <style>
+        .submit-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .form-group small {
+            display: block;
+            margin-top: 0.25rem;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .benefits {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .benefits h3 {
+            margin-bottom: 1rem;
+        }
+        .benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+        .benefits li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .benefits li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <img src="/images/logo.png" alt="BizToolz AI" style="height: 40px; width: auto;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/#tools">Top Tools</a></li>
+                <li><a href="/#reviews">Reviews</a></li>
+                <li><a href="/blog/">Guides</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/#newsletter" class="btn btn-nav">Get Updates</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" style="padding: 7rem 0 3rem;">
+        <div class="container">
+            <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3rem);">
+                Submit Your <span class="gradient-text">AI Tool</span>
+            </h1>
+            <p class="hero-subtitle">
+                Get featured on BizToolz AI and reach thousands of business professionals.
+            </p>
+        </div>
+        <div class="hero-gradient"></div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="submit-form">
+                <div class="benefits">
+                    <h3>🚀 Why Submit Your Tool?</h3>
+                    <ul>
+                        <li>Get featured in front of decision-makers</li>
+                        <li>Earn a permanent backlink to your site</li>
+                        <li>Free exposure (no listing fee)</li>
+                        <li>Potential inclusion in our newsletter</li>
+                    </ul>
+                </div>
+
+                <form id="submit-tool-form">
+                    <div class="form-group">
+                        <label for="toolName">Tool Name *</label>
+                        <input type="text" id="toolName" name="toolName" required placeholder="e.g., Jasper AI">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="toolUrl">Website URL *</label>
+                        <input type="url" id="toolUrl" name="toolUrl" required placeholder="https://yourproduct.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category...</option>
+                            <option value="writing">AI Writing Tools</option>
+                            <option value="meeting">Meeting Assistants</option>
+                            <option value="productivity">Productivity</option>
+                            <option value="data">Data & Analytics</option>
+                            <option value="marketing">Marketing & SEO</option>
+                            <option value="design">Design & Creative</option>
+                            <option value="development">Development & Code</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pricing">Pricing Model *</label>
+                        <select id="pricing" name="pricing" required>
+                            <option value="">Select pricing...</option>
+                            <option value="free">Free</option>
+                            <option value="freemium">Freemium</option>
+                            <option value="paid">Paid Only</option>
+                            <option value="enterprise">Enterprise</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tagline">Tagline *</label>
+                        <input type="text" id="tagline" name="tagline" required placeholder="One sentence describing your tool" maxlength="100">
+                        <small>Max 100 characters</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" name="description" required placeholder="Tell us what your tool does, who it's for, and what makes it unique..."></textarea>
+                        <small>Be specific. This helps us write a better review.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactEmail">Contact Email *</label>
+                        <input type="email" id="contactEmail" name="contactEmail" required placeholder="you@company.com">
+                        <small>We'll notify you when your tool is reviewed.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="affiliateProgram">Do you have an Affiliate Program?</label>
+                        <select id="affiliateProgram" name="affiliateProgram">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                            <option value="coming_soon">Coming Soon</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Tool for Review</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>© 2026 BizToolz AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
