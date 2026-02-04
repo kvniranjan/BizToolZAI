@@ -957,3 +957,90 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
         padding: 1.5rem;
     }
 }
+
+/* ========================================
+   SEO Audit Fixes: Mobile Tap Targets
+   ======================================== */
+
+/* Ensure interactive elements have sufficient touch area (44x44px min) */
+button, 
+.btn, 
+.mobile-menu-btn,
+.social-links a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Navigation Links */
+.nav-links a {
+    min-height: 44px;
+    padding: 10px 16px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Footer Links - Make full row clickable */
+.footer-links a {
+    min-height: 44px;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Protect inline links from breaking flow, but try to add padding */
+p a {
+    padding: 4px 0;
+}
+
+/* Related Posts Section (injected via SEO update) */
+.related-posts {
+    padding: 4rem 0;
+    background-color: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+}
+
+.related-posts h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.related-post-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-100);
+    transition: transform var(--transition-fast);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.related-post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+}
+
+.related-post-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--gray-900);
+}
+
+.related-post-card .read-more {
+    margin-top: auto;
+    font-size: 0.875rem;
+}
