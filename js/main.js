@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 button.innerHTML = '✓ Subscribed!';
-                button.style.background = '#10b981';
+                button.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
                 emailInput.value = ''; // Clear input
                 
                 // Reset after 3 seconds
@@ -170,7 +170,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Animate elements on scroll
+    // Staggered animation delays for cards
+    const cardTypes = [
+        { selector: '.tool-card', baseDelay: 0 },
+        { selector: '.comparison-card', baseDelay: 0 },
+        { selector: '.guide-card', baseDelay: 0 },
+        { selector: '.trust-item', baseDelay: 0 }
+    ];
+
+    cardTypes.forEach(({ selector }) => {
+        document.querySelectorAll(selector).forEach((el, i) => {
+            el.style.animationDelay = `${i * 100}ms`;
+        });
+    });
+
+    // Animate elements on scroll with stagger
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -187,9 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Observe all cards and sections
     document.querySelectorAll('.tool-card, .comparison-card, .guide-card, .trust-item').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(el);
     });
 
@@ -197,20 +208,45 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.insertAdjacentHTML('beforeend', `
         <style>
             .animate-in {
-                opacity: 1 !important;
-                transform: translateY(0) !important;
+                animation-play-state: running !important;
             }
         </style>
     `);
 
-    // Tool card hover effects
-    document.querySelectorAll('.tool-card').forEach(card => {
+    // Enhanced tool card hover effects
+    document.querySelectorAll('.tool-card, .comparison-card, .guide-card').forEach(card => {
         card.addEventListener('mouseenter', () => {
             card.style.transform = 'translateY(-8px)';
         });
-        
+
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Button press effect
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('mousedown', () => {
+            btn.style.transform = 'scale(0.98)';
+        });
+
+        btn.addEventListener('mouseup', () => {
+            btn.style.transform = '';
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = '';
+        });
+    });
+
+    // Input focus glow effect
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('focus', () => {
+            input.style.boxShadow = '0 0 0 3px rgba(212, 168, 83, 0.15)';
+        });
+
+        input.addEventListener('blur', () => {
+            input.style.boxShadow = '';
         });
     });
 
@@ -270,5 +306,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    console.log('🚀 BizToolz AI loaded successfully!');
+    console.log('✨ BizToolz AI Dark Theme loaded successfully!');
 });
