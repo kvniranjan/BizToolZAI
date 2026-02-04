@@ -106,14 +106,14 @@
             </button>
         </div>
     </nav>
-    <nav aria-label="Breadcrumb" style="padding: 1rem 0; background: #f8fafc; font-size: 0.9rem; margin-top: 4rem;">
+    <nav aria-label="Breadcrumb" style="padding: 1rem 0; background: var(--color-bg-elevated); font-size: 0.9rem; margin-top: 4rem; border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; color: #64748b;">
+            <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; color: var(--color-text-subtle);">
                 <li><a href="/" style="text-decoration: none; color: inherit;">Home</a></li>
                 <li><span style="margin: 0 0.5rem;">/</span></li>
                 <li><a href="/blog/" style="text-decoration: none; color: inherit;">Blog</a></li>
                 <li><span style="margin: 0 0.5rem;">/</span></li>
-                <li aria-current="page" style="color: #0f172a; font-weight: 500;">Best AI Meeting Assistants 2026: Granola vs Fireflies vs Otter</li>
+                <li aria-current="page" style="color: var(--color-text); font-weight: 500;">Best AI Meeting Assistants 2026: Granola vs Fireflies vs Otter</li>
             </ol>
         </div>
     </nav>
@@ -153,12 +153,12 @@
 
                 <section id="granola">
                     <h2>1. Granola: The "Anti-Bot" Choice</h2>
-                    <div class="tool-header" style="background: #fefce8; padding: 1.5rem; border-radius: 1rem; margin-bottom: 2rem; border: 1px solid #fde047;">
+                    <div class="tool-header" style="background: rgba(234, 179, 8, 0.1); padding: 1.5rem; border-radius: 1rem; margin-bottom: 2rem; border: 1px solid rgba(234, 179, 8, 0.3);">
                         <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div class="tool-icon" style="background: #eab308; color: black;">G</div>
+                            <div class="tool-icon" style="background: #eab308; color: black; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem;">G</div>
                             <div>
-                                <h3 style="margin: 0;">Granola</h3>
-                                <p style="margin: 0; color: #666;">Best for: Individuals, Founders, Consultants</p>
+                                <h3 style="margin: 0; color: var(--color-text);">Granola</h3>
+                                <p style="margin: 0; color: var(--color-text-muted);">Best for: Individuals, Founders, Consultants</p>
                             </div>
                         </div>
                     </div>
@@ -178,12 +178,12 @@
 
                 <section id="fireflies">
                     <h2>2. Fireflies.ai: The Powerhouse</h2>
-                    <div class="tool-header" style="background: #eff6ff; padding: 1.5rem; border-radius: 1rem; margin-bottom: 2rem; border: 1px solid #bfdbfe;">
+                    <div class="tool-header" style="background: rgba(37, 99, 235, 0.1); padding: 1.5rem; border-radius: 1rem; margin-bottom: 2rem; border: 1px solid rgba(37, 99, 235, 0.3);">
                         <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div class="tool-icon" style="background: #2563eb;">F</div>
+                            <div class="tool-icon" style="background: #2563eb; color: white; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem;">F</div>
                             <div>
-                                <h3 style="margin: 0;">Fireflies.ai</h3>
-                                <p style="margin: 0; color: #666;">Best for: Teams, Sales, CRM Integration</p>
+                                <h3 style="margin: 0; color: var(--color-text);">Fireflies.ai</h3>
+                                <p style="margin: 0; color: var(--color-text-muted);">Best for: Teams, Sales, CRM Integration</p>
                             </div>
                         </div>
                     </div>
@@ -203,34 +203,34 @@
 
                 <section id="comparison">
                     <h2>Head-to-Head Comparison</h2>
-                    <table style="width: 100%; border-collapse: collapse; margin: 2rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; margin: 2rem 0; background: var(--color-bg-card); border-radius: var(--radius-lg); overflow: hidden;">
                         <thead>
-                            <tr style="background: var(--gray-100); border-bottom: 2px solid var(--gray-200);">
-                                <th style="padding: 1rem; text-align: left;">Feature</th>
-                                <th style="padding: 1rem; text-align: left;">Granola</th>
-                                <th style="padding: 1rem; text-align: left;">Fireflies.ai</th>
+                            <tr style="background: var(--color-bg-elevated); border-bottom: 2px solid var(--color-border);">
+                                <th style="padding: 1rem; text-align: left; color: var(--color-text);">Feature</th>
+                                <th style="padding: 1rem; text-align: left; color: var(--color-text);">Granola</th>
+                                <th style="padding: 1rem; text-align: left; color: var(--color-text);">Fireflies.ai</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="border-bottom: 1px solid var(--gray-100);">
-                                <td style="padding: 1rem;"><strong>Recording Method</strong></td>
-                                <td style="padding: 1rem;">Local App (Private)</td>
-                                <td style="padding: 1rem;">Bot Joins Call (Visible)</td>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: 1rem; color: var(--color-text);"><strong>Recording Method</strong></td>
+                                <td style="padding: 1rem; color: var(--color-text-muted);">Local App (Private)</td>
+                                <td style="padding: 1rem; color: var(--color-text-muted);">Bot Joins Call (Visible)</td>
                             </tr>
-                            <tr style="border-bottom: 1px solid var(--gray-100);">
-                                <td style="padding: 1rem;"><strong>Best Use Case</strong></td>
-                                <td style="padding: 1rem;">Personal Productivity</td>
-                                <td style="padding: 1rem;">Team/Sales Intelligence</td>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: 1rem; color: var(--color-text);"><strong>Best Use Case</strong></td>
+                                <td style="padding: 1rem; color: var(--color-text-muted);">Personal Productivity</td>
+                                <td style="padding: 1rem; color: var(--color-text-muted);">Team/Sales Intelligence</td>
                             </tr>
-                            <tr style="border-bottom: 1px solid var(--gray-100);">
-                                <td style="padding: 1rem;"><strong>Integrations</strong></td>
-                                <td style="padding: 1rem;">Light (Slack, Notion)</td>
-                                <td style="padding: 1rem;">Heavy (CRM, Zapier, API)</td>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: 1rem; color: var(--color-text);"><strong>Integrations</strong></td>
+                                <td style="padding: 1rem; color: var(--color-text-muted);">Light (Slack, Notion)</td>
+                                <td style="padding: 1rem; color: var(--color-text-muted);">Heavy (CRM, Zapier, API)</td>
                             </tr>
-                            <tr style="border-bottom: 1px solid var(--gray-100);">
-                                <td style="padding: 1rem;"><strong>Note Quality</strong></td>
-                                <td style="padding: 1rem;">⭐⭐⭐⭐⭐ (Structured)</td>
-                                <td style="padding: 1rem;">⭐⭐⭐⭐ (Comprehensive)</td>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: 1rem; color: var(--color-text);"><strong>Note Quality</strong></td>
+                                <td style="padding: 1rem; color: var(--color-accent-1);">⭐⭐⭐⭐⭐ (Structured)</td>
+                                <td style="padding: 1rem; color: var(--color-accent-1);">⭐⭐⭐⭐ (Comprehensive)</td>
                             </tr>
                         </tbody>
                     </table>
@@ -239,14 +239,14 @@
                 <section id="verdict">
                     <h2>Final Verdict</h2>
                     <div class="pros-cons-grid">
-                        <div class="pros" style="background: white; border: 2px solid #eab308;">
-                            <h3 style="color: #a16207;">Pick Granola If...</h3>
-                            <p>You want a personal tool to write your meeting notes for you. You hate bots joining your calls and just want a clean, accurate summary to send to clients.</p>
+                        <div style="background: var(--color-bg-card); border: 2px solid rgba(234, 179, 8, 0.4); padding: var(--space-lg); border-radius: var(--radius-lg);">
+                            <h3 style="color: #eab308; margin-bottom: var(--space-md);">Pick Granola If...</h3>
+                            <p style="color: var(--color-text-muted); margin-bottom: var(--space-md);">You want a personal tool to write your meeting notes for you. You hate bots joining your calls and just want a clean, accurate summary to send to clients.</p>
                             <a href="https://granola.ai/?ref=biztoolzai" class="btn btn-primary" style="background: #eab308; color: black; width: 100%; margin-top: 1rem;" target="_blank" rel="noopener sponsored">Get Granola (1 Month Free)</a>
                         </div>
-                        <div class="pros" style="background: white; border: 2px solid #2563eb;">
-                            <h3 style="color: #1e40af;">Pick Fireflies If...</h3>
-                            <p>You work in a team or sales role. You need calls logged to a CRM, you need video recording, or you want to search across your entire team's meeting history.</p>
+                        <div style="background: var(--color-bg-card); border: 2px solid rgba(37, 99, 235, 0.4); padding: var(--space-lg); border-radius: var(--radius-lg);">
+                            <h3 style="color: #60a5fa; margin-bottom: var(--space-md);">Pick Fireflies If...</h3>
+                            <p style="color: var(--color-text-muted); margin-bottom: var(--space-md);">You work in a team or sales role. You need calls logged to a CRM, you need video recording, or you want to search across your entire team's meeting history.</p>
                             <a href="https://fireflies.ai/?fpr=biztoolzai" class="btn btn-primary" style="background: #2563eb; width: 100%; margin-top: 1rem;" target="_blank" rel="noopener sponsored">Get Fireflies Free</a>
                         </div>
                     </div>
