@@ -94,14 +94,14 @@
             </ul>
         </div>
     </nav>
-    <nav aria-label="Breadcrumb" style="padding: 1rem 0; background: #f8fafc; font-size: 0.9rem; margin-top: 4rem;">
+    <nav aria-label="Breadcrumb" style="padding: 1rem 0; background: var(--color-bg-elevated); font-size: 0.9rem; margin-top: 4rem; border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; color: #64748b;">
+            <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; color: var(--color-text-subtle);">
                 <li><a href="/" style="text-decoration: none; color: inherit;">Home</a></li>
                 <li><span style="margin: 0 0.5rem;">/</span></li>
                 <li><a href="/blog/" style="text-decoration: none; color: inherit;">Blog</a></li>
                 <li><span style="margin: 0 0.5rem;">/</span></li>
-                <li aria-current="page" style="color: #0f172a; font-weight: 500;">ChatGPT vs Claude: Which AI Is Better for Work?</li>
+                <li aria-current="page" style="color: var(--color-text); font-weight: 500;">ChatGPT vs Claude: Which AI Is Better for Work?</li>
             </ol>
         </div>
     </nav>
@@ -130,34 +130,34 @@
 
                 <h2>At a Glance: The Verdict</h2>
                 <div style="overflow-x:auto; margin-bottom: 2rem;">
-                    <table style="width:100%; border-collapse: collapse; border: 1px solid #e2e8f0;">
+                    <table style="width:100%; border-collapse: collapse; border: 1px solid var(--color-border); background: var(--color-bg-card); border-radius: var(--radius-lg); overflow: hidden;">
                         <thead>
-                            <tr style="background:#f8fafc;">
-                                <th style="padding:1rem; text-align:left; border-bottom:2px solid #e2e8f0;">Feature</th>
-                                <th style="padding:1rem; text-align:left; border-bottom:2px solid #e2e8f0;">ChatGPT (GPT-4o)</th>
-                                <th style="padding:1rem; text-align:left; border-bottom:2px solid #e2e8f0;">Claude (3.5 Sonnet)</th>
+                            <tr style="background: var(--color-bg-elevated);">
+                                <th style="padding:1rem; text-align:left; border-bottom:2px solid var(--color-border); color: var(--color-text);">Feature</th>
+                                <th style="padding:1rem; text-align:left; border-bottom:2px solid var(--color-border); color: var(--color-text);">ChatGPT (GPT-4o)</th>
+                                <th style="padding:1rem; text-align:left; border-bottom:2px solid var(--color-border); color: var(--color-text);">Claude (3.5 Sonnet)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;"><strong>Writing Style</strong></td>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;">Conversational, slightly verbose.</td>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;"><strong>Winner.</strong> Concise, human-like, nuanced.</td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-text);"><strong>Writing Style</strong></td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-text-muted);">Conversational, slightly verbose.</td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-accent-1);"><strong>Winner.</strong> Concise, human-like, nuanced.</td>
                             </tr>
                             <tr>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;"><strong>Coding</strong></td>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;">Strong, great for quick scripts.</td>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;"><strong>Winner.</strong> "Artifacts" UI is a game-changer for devs.</td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-text);"><strong>Coding</strong></td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-text-muted);">Strong, great for quick scripts.</td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-accent-1);"><strong>Winner.</strong> "Artifacts" UI is a game-changer for devs.</td>
                             </tr>
                             <tr>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;"><strong>Data Analysis</strong></td>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;"><strong>Winner.</strong> Built-in Python execution & charts.</td>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;">Good, but lacks native chart rendering.</td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-text);"><strong>Data Analysis</strong></td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-accent-1);"><strong>Winner.</strong> Built-in Python execution & charts.</td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-text-muted);">Good, but lacks native chart rendering.</td>
                             </tr>
                             <tr>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;"><strong>Context Window</strong></td>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;">128k Tokens</td>
-                                <td style="padding:1rem; border-bottom:1px solid #e2e8f0;"><strong>Winner.</strong> 200k Tokens (Recall is nearly perfect).</td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-text);"><strong>Context Window</strong></td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-text-muted);">128k Tokens</td>
+                                <td style="padding:1rem; border-bottom:1px solid var(--color-border); color: var(--color-accent-1);"><strong>Winner.</strong> 200k Tokens (Recall is nearly perfect).</td>
                             </tr>
                         </tbody>
                     </table>

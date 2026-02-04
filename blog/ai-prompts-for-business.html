@@ -17,8 +17,8 @@
     
     <style>
         .prompt-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
             border-radius: 12px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
@@ -31,45 +31,47 @@
             margin-bottom: 1rem;
         }
         .prompt-tag {
-            background: #e0f2fe;
-            color: #0369a1;
+            background: rgba(232, 168, 73, 0.15);
+            color: var(--color-accent-1);
             padding: 0.25rem 0.75rem;
             border-radius: 999px;
             font-size: 0.875rem;
             font-weight: 600;
         }
         .prompt-text {
-            font-family: 'Monaco', 'Consolas', monospace;
+            font-family: 'JetBrains Mono', 'Monaco', 'Consolas', monospace;
             font-size: 0.95rem;
-            color: #334155;
-            background: #ffffff;
+            color: var(--color-text-muted);
+            background: var(--color-bg-elevated);
             padding: 1rem;
             border-radius: 8px;
-            border: 1px dashed #cbd5e1;
+            border: 1px dashed var(--color-border);
             white-space: pre-wrap;
         }
         .copy-btn {
             background: none;
-            border: 1px solid #cbd5e1;
+            border: 1px solid var(--color-border);
             padding: 0.5rem 1rem;
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.875rem;
-            color: #64748b;
+            color: var(--color-text-subtle);
             transition: all 0.2s;
         }
         .copy-btn:hover {
-            background: #f1f5f9;
-            color: #0f172a;
+            background: var(--color-bg-elevated);
+            color: var(--color-text);
+            border-color: var(--color-accent-1);
         }
         .category-header {
             margin-top: 3rem;
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e2e8f0;
+            border-bottom: 2px solid var(--color-border);
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            color: var(--color-text);
         }
     </style>
     <link rel="canonical" href="https://biztoolzai.com/blog/ai-prompts-for-business.html">
@@ -159,14 +161,14 @@
             </ul>
         </div>
     </nav>
-    <nav aria-label="Breadcrumb" style="padding: 1rem 0; background: #f8fafc; font-size: 0.9rem; margin-top: 4rem;">
+    <nav aria-label="Breadcrumb" style="padding: 1rem 0; background: var(--color-bg-elevated); font-size: 0.9rem; margin-top: 4rem; border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; color: #64748b;">
+            <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; color: var(--color-text-subtle);">
                 <li><a href="/" style="text-decoration: none; color: inherit;">Home</a></li>
                 <li><span style="margin: 0 0.5rem;">/</span></li>
                 <li><a href="/blog/" style="text-decoration: none; color: inherit;">Blog</a></li>
                 <li><span style="margin: 0 0.5rem;">/</span></li>
-                <li aria-current="page" style="color: #0f172a; font-weight: 500;">50 AI Prompts for Business Professionals</li>
+                <li aria-current="page" style="color: var(--color-text); font-weight: 500;">50 AI Prompts for Business Professionals</li>
             </ol>
         </div>
     </nav>
