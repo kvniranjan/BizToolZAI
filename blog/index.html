@@ -85,7 +85,18 @@
 
     <!-- Blog Posts -->
     <main class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Search Bar -->
+        <div class="mb-12 max-w-2xl mx-auto">
+            <div class="relative flex items-center">
+                <span class="absolute left-4 text-xl">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search reviews, tools, or categories..." 
+                       class="w-full pl-12 pr-4 py-4 rounded-2xl border border-border bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-foreground text-lg">
+            </div>
+            <p id="noResults" class="text-center text-muted-foreground mt-8 hidden">No tools found matching your search. Try different keywords.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="toolsGrid">
             
             <!-- Featured Post -->
             <a href="ultimate-guide-ai-tools-ba.html" class="col-span-1 md:col-span-2 lg:col-span-3 bg-card border border-border p-8 rounded-2xl shadow-subtle hover:shadow-hover transition-all group flex flex-col md:flex-row gap-8 items-center">
@@ -255,5 +266,38 @@
     </footer>
 
     <script type="module" src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const toolsGrid = document.getElementById('toolsGrid');
+            const noResults = document.getElementById('noResults');
+            
+            // All items that are either direct children OR links inside the grid
+            const cards = Array.from(toolsGrid.children).filter(el => el.tagName === 'A' || el.classList.contains('guide-card'));
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const term = e.target.value.toLowerCase().trim();
+                    let visibleCount = 0;
+                    
+                    cards.forEach(card => {
+                        const text = card.innerText.toLowerCase();
+                        if (text.includes(term)) {
+                            card.style.display = '';
+                            visibleCount++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    if (visibleCount === 0) {
+                        noResults.classList.remove('hidden');
+                    } else {
+                        noResults.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
