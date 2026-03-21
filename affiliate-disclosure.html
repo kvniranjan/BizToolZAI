@@ -1,61 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Affiliate Disclosure for BizToolz AI. Transparency about how we make money and our commitment to honest reviews.">
     <title>Affiliate Disclosure — BizToolz AI</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=3">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-    <link rel="canonical" href="https://biztoolzai.com/affiliate-disclosure.html">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YNJ0HMCDY"></script>
+    <!-- Tailwind + Typography -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-2YNJ0HMCDY');
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    colors: {
+                        background: '#F8FAFC', foreground: '#020617',
+                        primary: '#0369A1', 'primary-hover': '#0284c7',
+                        secondary: '#334155', card: '#FFFFFF',
+                        border: '#E2E8F0', success: '#059669', warning: '#F59E0B'
+                    }
+                }
+            }
+        }
     </script>
+    <style>
+        body { background-color: #F8FAFC; color: #020617; }
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid #E2E8F0; }
+    </style>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="/" class="logo">
-                <img src="/images/logo.png" alt="BizToolz AI">
-            </a>
-            <ul class="nav-links">
-                <li><a href="/#tools">Top Tools</a></li>
-                <li><a href="/#reviews">Reviews</a></li>
-                <li><a href="/blog/">Guides</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/#newsletter" class="btn btn-nav">Get Updates</a></li>
-            </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+<body class="antialiased font-sans bg-background">
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <span class="text-2xl">⚡</span>
+                    <a href="/" class="font-bold text-xl tracking-tight text-foreground hover:text-primary transition-colors">BizToolz AI</a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/#tools" class="text-muted-foreground hover:text-primary font-medium transition-colors">Top Tools</a>
+                    <a href="/blog/" class="text-muted-foreground hover:text-primary font-medium transition-colors">Reviews</a>
+                    <a href="/#newsletter" class="bg-primary hover:bg-primary-hover text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm">Get Updates</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <header class="hero" style="padding: 6rem 0 4rem;">
-        <div class="container">
-            <h1 class="hero-title">Affiliate <span class="gradient-text">Disclosure</span></h1>
-            <p class="hero-subtitle">
-                Transparency is our core value. Here's how we fund this site.
-            </p>
+    <!-- Page Content -->
+    <main class="pt-32 pb-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-6 leading-tight">Affiliate Disclosure</h1>
         </div>
-        <div class="hero-gradient"></div>
-    </header>
 
-    <section class="section">
-        <div class="container" style="max-width: 800px;">
-            <div class="article-content" style="font-size: 1rem; line-height: 1.7; color: var(--gray-700);">
+        <article class="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-a:text-primary hover:prose-a:text-primary-hover bg-white p-8 sm:p-12 rounded-2xl shadow-sm border border-border">
+            
                 <h2>1. How We Make Money</h2>
                 <p>BizToolz AI is a reader-supported publication. Our goal is to provide the most honest, helpful, and thorough reviews of AI tools for business professionals.</p>
                 <p>To keep this site free for you and to fund our testing (software subscriptions add up!), we participate in affiliate programs. This means that if you click on a link to a tool on our site and make a purchase, we may earn a small commission at <strong>no extra cost to you</strong>.</p>
@@ -80,65 +80,24 @@
 
                 <h2>4. Questions?</h2>
                 <p>If you have any questions about our affiliate relationships, please don't hesitate to <a href="/contact.html">contact us</a>.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="logo">
-                        <img src="/images/logo.png" alt="BizToolz AI">
-                    </a>
-                    <p>Helping business professionals find the right AI tools since 2026.</p>
-                    <div class="social-links">
-                        <a href="https://twitter.com/biztoolzai" aria-label="Twitter">𝕏</a>
-                        <a href="https://www.linkedin.com/in/niranjan-kalahasti-a0833230/" aria-label="LinkedIn">in</a>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Tools</h4>
-                    <ul>
-                        <li><a href="/category/ai-writing-tools.html">AI Writing Tools</a></li>
-                        <li><a href="/category/meeting-assistants.html">Meeting Assistants</a></li>
-                        <li><a href="#">Data Analysis</a></li>
-                        <li><a href="/category/productivity.html">Productivity</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/#reviews">All Reviews</a></li>
-                        <li><a href="/#reviews">Comparisons</a></li>
-                        <li><a href="/blog/">Guides</a></li>
-                        <li><a href="/#newsletter">Newsletter</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-                    </ul>
-                </div>
-            </div>
             
-            <div class="footer-bottom">
-                <p>© 2026 BizToolz AI. All rights reserved.</p>
-                <p class="affiliate-disclosure">
-                    <strong>Affiliate Disclosure:</strong> Some links on this site are affiliate links. 
-                    We may earn a commission if you make a purchase, at no extra cost to you.
-                </p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-border py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="text-xl">⚡</span>
+                <span class="font-bold tracking-tight text-foreground">BizToolz AI</span>
+            </div>
+            <p class="text-muted-foreground text-sm">© 2026 BizToolz AI. All rights reserved.</p>
+            <div class="flex gap-6 text-sm font-medium">
+                <a href="/privacy-policy.html" class="text-muted-foreground hover:text-foreground transition-colors">Privacy</a>
+                <a href="/affiliate-disclosure.html" class="text-muted-foreground hover:text-foreground transition-colors">Affiliate Disclosure</a>
             </div>
         </div>
     </footer>
 
-    <script type="module" src="js/main.js"></script>
 </body>
 </html>
