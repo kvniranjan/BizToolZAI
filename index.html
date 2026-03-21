@@ -1,556 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover the best AI tools for business professionals in 2026. Get expert reviews, comparisons, and practical guides to help you work smarter and boost ROI.">
-    <meta name="keywords" content="AI tools, business AI, productivity AI, Notion AI, ChatGPT, Jasper AI, AI for business analysts">
-    <meta name="author" content="BizToolz AI">
-    <meta name="robots" content="index, follow">
+    <title>BizToolz AI — The Best AI Tools for Business Professionals</title>
     
-    <!-- Open Graph / Social -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://biztoolzai.com/">
-    <meta property="og:title" content="BizToolz AI — AI Tools That Actually Work">
-    <meta property="og:description" content="Expert reviews and comparisons of the best AI tools for business professionals.">
-    <meta property="og:image" content="https://biztoolzai.com/images/og-image.png">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BizToolz AI — AI Tools That Actually Work">
-    <meta name="twitter:description" content="Expert reviews and comparisons of the best AI tools for business professionals.">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-    
-    <title>BizToolz AI — AI Tools That Actually Work for Business</title>
-    
-    <!-- Theme Color for Dark Mode -->
-    <meta name="theme-color" content="#0D0D0F">
-
-    <!-- Fonts -->
+    <!-- Typography: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "BizToolz AI",
-        "url": "https://biztoolzai.com",
-        "description": "Expert reviews and comparisons of AI tools for business professionals",
-        "sameAs": [
-            "https://twitter.com/biztoolzai",
-            "https://linkedin.com/company/biztoolzai"
-        ]
-    }
-    </script>
-    <link rel="canonical" href="https://biztoolzai.com/">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YNJ0HMCDY"></script>
+    <!-- Design System Configuration -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-2YNJ0HMCDY');
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#F8FAFC',
+                        foreground: '#020617',
+                        primary: '#0369A1',
+                        'primary-hover': '#0284c7',
+                        secondary: '#334155',
+                        card: '#FFFFFF',
+                        muted: '#E8ECF1',
+                        'muted-foreground': '#64748B',
+                        border: '#E2E8F0',
+                        success: '#059669',
+                        warning: '#F59E0B'
+                    },
+                    boxShadow: {
+                        'subtle': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'hover': '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04)',
+                    }
+                }
+            }
+        }
     </script>
+    <style>
+        body { background-color: #F8FAFC; color: #020617; }
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid #E2E8F0; }
+    </style>
 </head>
-<body>
-    <!-- Ambient Background Elements -->
-    <div class="ambient-orb ambient-orb--primary"></div>
-    <div class="ambient-orb ambient-orb--secondary"></div>
-    <div class="noise-overlay"></div>
-    <div class="grid-overlay"></div>
+<body class="antialiased font-sans">
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="/" class="logo">
-                <img src="/images/logo.png" alt="BizToolz AI" style="height: 40px; width: auto;">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#tools">Top Tools</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="blog/">Guides</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#newsletter" class="btn btn-nav">Get Updates</a></li>
-            </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <span class="text-2xl">⚡</span>
+                    <span class="font-bold text-xl tracking-tight">BizToolz AI</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#tools" class="text-muted-foreground hover:text-primary font-medium transition-colors">Top Tools</a>
+                    <a href="blog/" class="text-muted-foreground hover:text-primary font-medium transition-colors">Reviews</a>
+                    <a href="#newsletter" class="bg-primary hover:bg-primary-hover text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm">Get Updates</a>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <div class="hero-badge">🚀 Trusted by 1,000+ professionals</div>
-            <h1 class="hero-title">
-                AI Tools That <span class="gradient-text">Actually Work</span> for Business
-            </h1>
-            <p class="hero-subtitle">
-                Stop wasting time on overhyped tools. Get honest reviews, real comparisons, 
-                and practical guides from someone who uses AI daily.
-            </p>
-            <div class="hero-cta">
-                <a href="#tools" class="btn btn-primary btn-lg">
-                    Explore Top Tools
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="#newsletter" class="btn btn-secondary btn-lg">Get Free Guide</a>
+    <main class="pt-32 pb-16 sm:pt-40 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-primary border border-blue-100 text-sm font-semibold mb-6">
+            <span class="flex h-2 w-2 rounded-full bg-primary"></span>
+            Updated for March 2026
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-foreground mb-6 leading-tight">
+            Stop Guessing. <br class="hidden sm:block" />
+            <span class="text-primary">Start Automating.</span>
+        </h1>
+        <p class="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+            We test, review, and rank the absolute best AI tools for business analysts, founders, and creators. No fluff, just what works.
+        </p>
+        <div class="flex justify-center gap-4 flex-col sm:flex-row">
+            <a href="#reviews" class="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-full font-semibold transition-all shadow-subtle hover:shadow-hover">Read Latest Reviews</a>
+            <a href="#directory" class="bg-white hover:bg-gray-50 text-foreground border border-border px-8 py-3 rounded-full font-semibold transition-all shadow-sm">Browse Directory</a>
+        </div>
+    </main>
+
+    <!-- Trust Badges -->
+    <div class="border-y border-border bg-white py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-6">Tools We've Analyzed</p>
+            <div class="flex justify-center gap-8 md:gap-16 opacity-50 grayscale flex-wrap">
+                <span class="text-xl font-bold">OpenAI</span>
+                <span class="text-xl font-bold">Anthropic</span>
+                <span class="text-xl font-bold">Notion</span>
+                <span class="text-xl font-bold">CapCut</span>
+                <span class="text-xl font-bold">Supabase</span>
             </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">25+</span>
-                    <span class="stat-label">Tools Reviewed</span>
+        </div>
+    </div>
+
+    <!-- Editor's Choice Section -->
+    <section id="tools" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <h2 class="text-3xl font-bold text-foreground tracking-tight">Editor's Choice</h2>
+                <p class="text-muted-foreground mt-2">The highest-rated tools making a real impact this month.</p>
+            </div>
+            <a href="blog/" class="text-primary font-semibold hover:underline hidden sm:block">View all rankings &rarr;</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-card rounded-2xl border border-border p-6 shadow-subtle hover:shadow-hover transition-all relative group flex flex-col h-full">
+                <div class="absolute top-0 right-0 bg-warning text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl flex items-center gap-1">
+                    ★ 4.9/5
                 </div>
-                <div class="stat">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Hours Tested</span>
+                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">L</div>
+                <h3 class="text-xl font-bold mb-2">Lovable.dev</h3>
+                <p class="text-muted-foreground text-sm mb-6 flex-grow">The ultimate "text-to-app" builder. Describe your SaaS in plain English, and it writes production-ready React code instantly.</p>
+                <div class="pt-4 border-t border-border flex justify-between items-center">
+                    <span class="text-sm font-semibold text-secondary">Best for Founders</span>
+                    <a href="blog/lovable-dev-review.html" class="text-primary font-semibold text-sm group-hover:underline">Read Review &rarr;</a>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Honest Reviews</span>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-card rounded-2xl border border-border p-6 shadow-subtle hover:shadow-hover transition-all relative group flex flex-col h-full">
+                <div class="absolute top-0 right-0 bg-warning text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl flex items-center gap-1">
+                    ★ 4.8/5
+                </div>
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">A</div>
+                <h3 class="text-xl font-bold mb-2">Answrr AI</h3>
+                <p class="text-muted-foreground text-sm mb-6 flex-grow">A 24/7 AI receptionist that handles inbound calls, answers questions, and books appointments directly into your calendar.</p>
+                <div class="pt-4 border-t border-border flex justify-between items-center">
+                    <span class="text-sm font-semibold text-secondary">Best for Local Biz</span>
+                    <a href="blog/answrr-ai-receptionist-review.html" class="text-primary font-semibold text-sm group-hover:underline">Read Review &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-card rounded-2xl border border-border p-6 shadow-subtle hover:shadow-hover transition-all relative group flex flex-col h-full">
+                <div class="absolute top-0 right-0 bg-warning text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl flex items-center gap-1">
+                    ★ 4.9/5
+                </div>
+                <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">R</div>
+                <h3 class="text-xl font-bold mb-2">Reclaim.ai</h3>
+                <p class="text-muted-foreground text-sm mb-6 flex-grow">Stop playing Calendar Tetris. This smart calendar auto-blocks time for deep work and defends your schedule from meetings.</p>
+                <div class="pt-4 border-t border-border flex justify-between items-center">
+                    <span class="text-sm font-semibold text-secondary">Best for PMs</span>
+                    <a href="blog/reclaim-ai-review.html" class="text-primary font-semibold text-sm group-hover:underline">Read Review &rarr;</a>
                 </div>
             </div>
         </div>
-        <div class="hero-gradient"></div>
-    </header>
+    </section>
 
-    <!-- Featured Tools Section -->
-    <section id="tools" class="section tools-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">⭐ Editor's Picks</span>
-                <h2 class="section-title">Top AI Tools for 2026</h2>
-                <p class="section-subtitle">Hand-picked tools that deliver real ROI for business professionals</p>
+    <!-- Latest Reviews List -->
+    <section id="reviews" class="py-16 bg-white border-y border-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold mb-8 tracking-tight">Recent Deep Dives</h2>
+            <div class="space-y-4">
+                <a href="blog/munch-ai-review.html" class="block p-4 rounded-xl hover:bg-muted transition-colors border border-transparent hover:border-border">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-bold text-primary uppercase tracking-wider mb-1 block">Content AI</span>
+                            <h3 class="text-lg font-semibold text-foreground">Munch AI Review: The "Auto-Viral" Video Tool</h3>
+                        </div>
+                        <span class="text-muted-foreground text-sm">Mar 2026</span>
+                    </div>
+                </a>
+                <a href="blog/seedance-capcut-review.html" class="block p-4 rounded-xl hover:bg-muted transition-colors border border-transparent hover:border-border">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-bold text-primary uppercase tracking-wider mb-1 block">Video AI</span>
+                            <h3 class="text-lg font-semibold text-foreground">Seedance 2.0 (CapCut) Review: Is ByteDance the New King?</h3>
+                        </div>
+                        <span class="text-muted-foreground text-sm">Feb 2026</span>
+                    </div>
+                </a>
+                <a href="blog/top-ai-excel-tools.html" class="block p-4 rounded-xl hover:bg-muted transition-colors border border-transparent hover:border-border">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-bold text-primary uppercase tracking-wider mb-1 block">Data Analysis</span>
+                            <h3 class="text-lg font-semibold text-foreground">Top 3 AI Tools for Excel & Google Sheets</h3>
+                        </div>
+                        <span class="text-muted-foreground text-sm">Feb 2026</span>
+                    </div>
+                </a>
             </div>
+            <div class="mt-8 text-center">
+                <a href="blog/" class="btn bg-white border border-border text-foreground hover:bg-muted px-6 py-2 rounded-full font-medium transition-colors">View All Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section id="newsletter" class="py-24 max-w-4xl mx-auto px-4 text-center">
+        <div class="bg-card border border-border p-10 sm:p-14 rounded-3xl shadow-subtle">
+            <span class="inline-block bg-green-100 text-success text-xs font-bold px-3 py-1 rounded-full mb-4">Free Weekly Newsletter</span>
+            <h2 class="text-3xl font-bold mb-4 tracking-tight">Stay Ahead of the Curve.</h2>
+            <p class="text-muted-foreground mb-8 max-w-lg mx-auto">Join 1,000+ business professionals getting the absolute best AI tools and workflows delivered every week. No spam.</p>
             
-            <div class="tools-grid">
-                <!-- Tool Card 1: Notion AI -->
-                <article class="tool-card featured">
-                    <div class="tool-badge">🏆 Best Overall</div>
-                    <div class="tool-header">
-                        <div class="tool-icon notion-icon">N</div>
-                        <div class="tool-meta">
-                            <h3 class="tool-name">Notion AI</h3>
-                            <div class="tool-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-text">4.9/5</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="tool-description">
-                        The all-in-one workspace with powerful AI built right in. Perfect for docs, notes, wikis, and project management.
-                    </p>
-                    <ul class="tool-features">
-                        <li>✓ AI writing & editing</li>
-                        <li>✓ Summarize any document</li>
-                        <li>✓ Generate action items</li>
-                        <li>✓ Works inside your workspace</li>
-                    </ul>
-                    <div class="tool-pricing">
-                        <span class="price">$10</span>
-                        <span class="price-period">/month add-on</span>
-                    </div>
-                    <div class="tool-cta">
-                        <a href="https://www.notion.com/" class="btn btn-primary" target="_blank" rel="noopener">Try Notion AI Free →</a>
-                    </div>
-                </article>
-
-                <!-- Tool Card 2: Jasper AI -->
-                <article class="tool-card">
-                    <div class="tool-badge">✍️ Best for Writing</div>
-                    <div class="tool-header">
-                        <div class="tool-icon jasper-icon">J</div>
-                        <div class="tool-meta">
-                            <h3 class="tool-name">Jasper AI</h3>
-                            <div class="tool-rating">
-                                <span class="stars">★★★★☆</span>
-                                <span class="rating-text">4.7/5</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="tool-description">
-                        Enterprise-grade AI writing assistant. Creates marketing copy, blog posts, and business documents at scale.
-                    </p>
-                    <ul class="tool-features">
-                        <li>✓ 50+ writing templates</li>
-                        <li>✓ Brand voice training</li>
-                        <li>✓ Team collaboration</li>
-                        <li>✓ Chrome extension</li>
-                    </ul>
-                    <div class="tool-pricing">
-                        <span class="price">$49</span>
-                        <span class="price-period">/month</span>
-                    </div>
-                    <div class="tool-cta">
-                        <a href="https://www.jasper.ai/?via=biztoolzai" class="btn btn-outline" target="_blank" rel="noopener sponsored">Try Jasper Free →</a>
-                    </div>
-                </article>
-
-                <!-- Tool Card 3: ChatGPT Plus -->
-                <article class="tool-card">
-                    <div class="tool-badge">🧠 Most Versatile</div>
-                    <div class="tool-header">
-                        <div class="tool-icon chatgpt-icon">G</div>
-                        <div class="tool-meta">
-                            <h3 class="tool-name">ChatGPT Plus</h3>
-                            <div class="tool-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-text">4.8/5</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="tool-description">
-                        The AI assistant everyone knows. GPT-4 access, plugins, code interpreter, and image generation.
-                    </p>
-                    <ul class="tool-features">
-                        <li>✓ GPT-4 & GPT-4o access</li>
-                        <li>✓ Data analysis built-in</li>
-                        <li>✓ Image generation (DALL-E)</li>
-                        <li>✓ Custom GPTs</li>
-                    </ul>
-                    <div class="tool-pricing">
-                        <span class="price">$20</span>
-                        <span class="price-period">/month</span>
-                    </div>
-                    <div class="tool-cta">
-                        <a href="https://chat.openai.com/" class="btn btn-outline" target="_blank" rel="noopener">Try ChatGPT Plus →</a>
-                    </div>
-                </article>
-
-                <!-- Tool Card 4: Claude Pro -->
-                <article class="tool-card">
-                    <div class="tool-badge">📊 Best for Analysis</div>
-                    <div class="tool-header">
-                        <div class="tool-icon claude-icon">C</div>
-                        <div class="tool-meta">
-                            <h3 class="tool-name">Claude Pro</h3>
-                            <div class="tool-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-text">4.8/5</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="tool-description">
-                        Anthropic's AI assistant. Exceptional at long documents, nuanced analysis, and thoughtful responses.
-                    </p>
-                    <ul class="tool-features">
-                        <li>✓ 200K context window</li>
-                        <li>✓ PDF & file analysis</li>
-                        <li>✓ Nuanced reasoning</li>
-                        <li>✓ Coding assistance</li>
-                    </ul>
-                    <div class="tool-pricing">
-                        <span class="price">$20</span>
-                        <span class="price-period">/month</span>
-                    </div>
-                    <div class="tool-cta">
-                        <a href="https://claude.ai/" class="btn btn-outline" target="_blank" rel="noopener">Try Claude Pro →</a>
-                    </div>
-                </article>
-
-                <!-- Tool Card 5: Otter.ai -->
-                <article class="tool-card">
-                    <div class="tool-badge">🎙️ Best for Meetings</div>
-                    <div class="tool-header">
-                        <div class="tool-icon otter-icon">O</div>
-                        <div class="tool-meta">
-                            <h3 class="tool-name">Otter.ai</h3>
-                            <div class="tool-rating">
-                                <span class="stars">★★★★☆</span>
-                                <span class="rating-text">4.6/5</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="tool-description">
-                        AI meeting assistant that transcribes, summarizes, and extracts action items automatically.
-                    </p>
-                    <ul class="tool-features">
-                        <li>✓ Real-time transcription</li>
-                        <li>✓ Auto meeting summaries</li>
-                        <li>✓ Action item extraction</li>
-                        <li>✓ Zoom/Meet/Teams integration</li>
-                    </ul>
-                    <div class="tool-pricing">
-                        <span class="price">$16.99</span>
-                        <span class="price-period">/month</span>
-                    </div>
-                    <div class="tool-cta">
-                        <a href="https://otter.ai/" class="btn btn-outline" target="_blank" rel="noopener">Try Otter Free →</a>
-                    </div>
-                </article>
-
-                <!-- Tool Card 6: Copy.ai -->
-                <article class="tool-card">
-                    <div class="tool-badge">📝 Best Value</div>
-                    <div class="tool-header">
-                        <div class="tool-icon copyai-icon">©</div>
-                        <div class="tool-meta">
-                            <h3 class="tool-name">Copy.ai</h3>
-                            <div class="tool-rating">
-                                <span class="stars">★★★★☆</span>
-                                <span class="rating-text">4.5/5</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="tool-description">
-                        AI copywriting tool with generous free tier. Great for marketing copy, emails, and social posts.
-                    </p>
-                    <ul class="tool-features">
-                        <li>✓ 2,000 free words/month</li>
-                        <li>✓ 90+ copywriting tools</li>
-                        <li>✓ Blog post wizard</li>
-                        <li>✓ Multiple languages</li>
-                    </ul>
-                    <div class="tool-pricing">
-                        <span class="price">$49</span>
-                        <span class="price-period">/month (Free tier available)</span>
-                    </div>
-                    <div class="tool-cta">
-                        <a href="https://www.copy.ai/" class="btn btn-outline" target="_blank" rel="noopener">Try Copy.ai Free →</a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="tools-cta">
-                <a href="blog/" class="btn btn-secondary btn-lg">View All Reviews →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison Section -->
-    <section id="reviews" class="section comparison-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">🔍 Head-to-Head</span>
-                <h2 class="section-title">Popular Comparisons</h2>
-                <p class="section-subtitle">Side-by-side breakdowns to help you choose</p>
-            </div>
-            
-            <div class="comparison-grid">
-                <a href="blog/jasper-ai-review.html" class="comparison-card">
-                    <div class="comparison-vs">
-                        <span class="tool-badge-sm jasper">Jasper AI</span>
-                        <span class="vs">Review</span>
-                        <span class="tool-badge-sm" style="background: var(--gray-700);">2026</span>
-                    </div>
-                    <h3>Jasper AI Review: Is It Worth $49/Month?</h3>
-                    <p>An honest, hands-on review after 30 days of using Jasper for business writing.</p>
-                    <span class="read-more">Read Review →</span>
-                </a>
-
-                <a href="blog/chatgpt-vs-claude.html" class="comparison-card">
-                    <div class="comparison-vs">
-                        <span class="tool-badge-sm chatgpt">ChatGPT</span>
-                        <span class="vs">vs</span>
-                        <span class="tool-badge-sm claude">Claude</span>
-                    </div>
-                    <h3>ChatGPT vs Claude: The Ultimate Showdown</h3>
-                    <p>Two AI giants compared. Speed, accuracy, reasoning, and real-world performance tested.</p>
-                    <span class="read-more">Read Comparison →</span>
-                </a>
-
-                <a href="blog/ai-meeting-assistants.html" class="comparison-card">
-                    <div class="comparison-vs">
-                        <span class="tool-badge-sm" style="background: #eab308; color: black;">Granola</span>
-                        <span class="vs">vs</span>
-                        <span class="tool-badge-sm" style="background: #2563eb;">Fireflies</span>
-                    </div>
-                    <h3>Best AI Meeting Assistants 2026</h3>
-                    <p>Granola vs Fireflies vs Otter — do you need a bot or a notepad?</p>
-                    <span class="read-more">Read Comparison →</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Guide Section -->
-    <section id="guides" class="section guides-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">📚 Learn</span>
-                <h2 class="section-title">AI Guides & Tutorials</h2>
-                <p class="section-subtitle">Practical guides to get more from AI tools</p>
-            </div>
-            
-            <div class="guides-grid">
-                <a href="blog/ultimate-guide-ai-tools-ba.html" class="guide-card featured-guide">
-                    <div class="guide-tag">Featured Guide</div>
-                    <h3>The Ultimate Guide to AI Tools for Business Analysts</h3>
-                    <p>Everything you need to know about using AI in your BA workflow. From requirements gathering to stakeholder communication.</p>
-                    <div class="guide-meta">
-                        <span>📖 12 min read</span>
-                        <span>🔥 Most Popular</span>
-                    </div>
-                </a>
-
-                <a href="blog/granola-ai-review.html" class="guide-card">
-                    <h3>Granola Review: The "Anti-Bot" Notepad</h3>
-                    <p>Create better meeting notes without awkward bots joining your call.</p>
-                    <div class="guide-meta">
-                        <span>📖 6 min read</span>
-                        <span>🚀 New</span>
-                    </div>
-                </a>
-
-                <a href="blog/top-productivity-ai-tools.html" class="guide-card">
-                    <h3>Top Productivity Tools: Gamma & Motion</h3>
-                    <p>Stop formatting slides and manually scheduling. Let AI do it.</p>
-                    <div class="guide-meta">
-                        <span>📖 5 min read</span>
-                        <span>🚀 New</span>
-                    </div>
-                </a>
-
-                <a href="blog/" class="guide-card">
-                    <h3>View All Guides & Reviews</h3>
-                    <p>Browse our complete library of AI tool reviews, comparisons, and how-to guides.</p>
-                    <div class="guide-meta">
-                        <span>📚 Full Library</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section id="newsletter" class="section newsletter-section">
-        <div class="container">
-            <div class="newsletter-card">
-                <div class="newsletter-content">
-                    <span class="newsletter-badge">📬 Free Weekly Newsletter</span>
-                    <h2>Get the Best AI Tools in Your Inbox</h2>
-                    <p>Join 1,000+ professionals getting weekly AI tool recommendations, tips, and exclusive deals. No spam, unsubscribe anytime.</p>
-                    
-                    <form class="newsletter-form" action="#" method="POST">
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Enter your email" required>
-                            <button type="submit" class="btn btn-primary">
-                                Get Free Access
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </form>
-                    
-                    <div class="newsletter-bonus">
-                        <span>🎁 Bonus:</span> Get our free "AI Tools Starter Kit" PDF instantly
-                    </div>
-                </div>
-                <div class="newsletter-features">
-                    <div class="feature">
-                        <span class="feature-icon">🔍</span>
-                        <span>Weekly tool discoveries</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">💡</span>
-                        <span>Practical tips & prompts</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">🎯</span>
-                        <span>Exclusive deals & discounts</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Section -->
-    <section class="section trust-section">
-        <div class="container">
-            <div class="trust-content">
-                <h2>Why Trust BizToolz AI?</h2>
-                <div class="trust-grid">
-                    <div class="trust-item">
-                        <span class="trust-icon">🎯</span>
-                        <h3>Real Testing</h3>
-                        <p>Every tool is tested hands-on for real business tasks, not just feature lists.</p>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">💬</span>
-                        <h3>Honest Reviews</h3>
-                        <p>We share what works AND what doesn't. No sugarcoating, no paid rankings.</p>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">👔</span>
-                        <h3>Business Focus</h3>
-                        <p>Written by a Business Analyst for business professionals. We get your needs.</p>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">🔄</span>
-                        <h3>Always Updated</h3>
-                        <p>AI moves fast. Our reviews are updated regularly to stay current.</p>
-                    </div>
-                </div>
-            </div>
+            <form class="newsletter-form flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input type="email" name="email" placeholder="Enter your work email" required class="flex-grow px-4 py-3 rounded-xl border border-border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                <button type="submit" class="bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-6 rounded-xl transition-colors whitespace-nowrap">Subscribe</button>
+            </form>
+            <p class="text-xs text-muted-foreground mt-4">We respect your inbox. Unsubscribe anytime.</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="logo">
-                        <img src="/images/logo.png" alt="BizToolz AI" style="height: 40px; width: auto;">
-                    </a>
-                    <p>Helping business professionals find the right AI tools since 2026.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Twitter">𝕏</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="YouTube">▶</a>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Tools</h4>
-                    <ul>
-                        <li><a href="/category/ai-writing-tools.html">AI Writing Tools</a></li>
-                        <li><a href="/category/meeting-assistants.html">Meeting Assistants</a></li>
-                        <li><a href="#">Data Analysis</a></li>
-                        <li><a href="/category/productivity.html">Productivity</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">All Reviews</a></li>
-                        <li><a href="#">Comparisons</a></li>
-                        <li><a href="#">Guides</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="/about.html">About</a></li>
-                        <li><a href="/submit-tool.html">Submit a Tool</a></li>
-                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
+    <footer class="bg-white border-t border-border py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="text-xl">⚡</span>
+                <span class="font-bold tracking-tight text-foreground">BizToolz AI</span>
             </div>
-            
-            <div class="footer-bottom">
-                <p>© 2026 BizToolz AI. All rights reserved.</p>
-                <p class="affiliate-disclosure">
-                    <strong>Affiliate Disclosure:</strong> Some links on this site are affiliate links. 
-                    We may earn a commission if you make a purchase, at no extra cost to you. 
-                    We only recommend tools we genuinely believe in.
-                </p>
+            <p class="text-muted-foreground text-sm">© 2026 BizToolz AI. All rights reserved.</p>
+            <div class="flex gap-6 text-sm font-medium">
+                <a href="privacy-policy.html" class="text-muted-foreground hover:text-foreground transition-colors">Privacy</a>
+                <a href="affiliate-disclosure.html" class="text-muted-foreground hover:text-foreground transition-colors">Affiliate Disclosure</a>
             </div>
         </div>
     </footer>
