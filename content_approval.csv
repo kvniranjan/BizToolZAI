@@ -1,7 +1,7 @@
 Date,Tool,Path,Status
 2026-03-12,Anyword,content/Anyword_2026-03-12.md,Auto-Queue
 2026-03-13,Pollo AI,content/Pollo_AI_2026-03-13.md,Auto-Queue
-"2026-03-14","Munch","content/Munch_2026-03-14.md","Auto-Queue"
+2026-03-14,Munch,content/Munch_2026-03-14.md,Auto-Queue
 2026-03-15,Lovable AI,content/lovable_2026-03-15.md,Auto-Queue
 2026-03-16,ElevenLabs,content/ElevenLabs_2026-03-16.md,Auto-Queue
 2026-03-17,Answrr,content/answrr_2026-03-17.md,Auto-Queue
@@ -12,7 +12,9 @@ Date,Tool,Path,Status
 2026-03-22,Instantly.ai,content/Instantly.ai_2026-03-22.md,Auto-Queue
 2026-03-23,Munch,content/Munch_2026-03-23.md,Auto-Queue
 BigTech_Update_20260324,Auto-Queue,2026-03-24,content/BigTech_Update_20260324.md
-2026-03-24,"Lindy AI","content/Lindy_AI_2026-03-24.md","Auto-Queue"
+2026-03-24,Lindy AI,content/Lindy_AI_2026-03-24.md,Auto-Queue
 2026-03-25, Lovable AI, content/Lovable_AI_2026-03-25.md, Auto-Queue
 2026-03-26,Blym,content/Blym_2026-03-26.md,Auto-Queue
 2026-03-27,Crayo AI,content/Crayo_AI_2026-03-27.md,Published
+2026-03-28,Anthropic (Claude),content/Anthropic_Update_2026-03-28.md,Auto-Queue
+2026-03-28,Granola AI,content/Granola_AI_2026-03-28.md,Published
