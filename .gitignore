@@ -9,3 +9,12 @@ MEMORY.md
 BOOTSTRAP.md
 memory/
 projects/
+venv/
+*.pickle
+youtube_token.json
+yt_stats.json
+videos/
+venv/
+youtube_token.json
+yt_stats.json
+videos/
