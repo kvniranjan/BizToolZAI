@@ -18,3 +18,7 @@ venv/
 youtube_token.json
 yt_stats.json
 videos/
+client_secret.json
+get_token_v2.py
+exchange_token.py
+tiktok_config.json
