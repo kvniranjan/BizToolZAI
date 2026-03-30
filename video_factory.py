@@ -5,7 +5,7 @@ import subprocess
 from datetime import datetime
 
 # Configurations
-API_KEY_GEMINI = "AIzaSyDtm_wNCZD77H5PsKs6Y_eG1jck9-FOc1k"
+API_KEY_GEMINI = "AIzaSyDYPMQD3puji9rX2sWAQpmt_FKk4J56_ow"
 API_KEY_ELEVENLABS = "2430b417f4d4a39161a9164953d80c62ff4d5cf19734e73a9dba9094ac474949"
 VOICE_ID = "JBFqnCBsd6RMkjVDRZzb" # Brian - Deep, documentary voice
 CHANNEL_NAME = "Obscured History"

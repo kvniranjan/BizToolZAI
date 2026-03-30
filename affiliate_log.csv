@@ -1,24 +1,29 @@
-Date,Tool,Status
-2026-03-12,Anyword,Drafted & Queued
-2026-03-13,Pollo AI,Affiliate Found
-"2026-03-14","Munch","Yes (15% recurring)"
-2026-03-15,Lovable AI,Yes
-2026-03-16,ElevenLabs,Yes
+Date,Tool,Status,Notes
+2026-03-12,Anyword,Drafted & Queued,
+2026-03-13,Pollo AI,Affiliate Found,
+2026-03-14,Munch,Yes (15% recurring),
+2026-03-15,Lovable AI,Yes,
+2026-03-16,ElevenLabs,Yes,
 2026-03-17,Answrr,Affiliate Found,30% lifetime recurring commissions
 2026-03-18,Zebracat,Yes,30% commission 90-day cookie
-2026-03-19,Synthesia,Yes
+2026-03-19,Synthesia,Yes,
 2026-03-20,Answrr,Yes,30% Lifetime Recurring
 2026-03-21,AISEO,Yes,Drafted and Queued
-2026-03-22,Instantly.ai,Yes
+2026-03-22,Instantly.ai,Yes,
 2026-03-23,Munch,Yes,15% recurring
-2026-03-24,"Lindy AI",Yes
-2026-03-25, Lovable AI, Has Affiliate
-2026-03-26,Blym,Yes
-2026-03-27,Crayo AI,Yes
-<<<<<<< HEAD
+2026-03-24,Lindy AI,Yes,
+2026-03-25,Lovable AI,Has Affiliate,
+2026-03-26,Blym,Yes,
+2026-03-27,Crayo AI,Yes,
 2026-03-28,Littlebird AI,Yes — Referral Program (launched Jan 2026),Referral link available; share with friends for credits/discounts
 2026-03-28,SuperTurtle,No confirmed affiliate program,Open-source GitHub project; no formal affiliate structure found
 2026-03-28,DenchClaw (local-first CRM),Unconfirmed,No public affiliate page found; early-stage launch
-2026-03-28,Granola AI,Drafted & Queued
-=======
->>>>>>> 76fe0b0cfb65a4d991df867a1b6f24a411e2ec1f
+2026-03-28,Granola AI,Drafted & Queued,
+2026-03-29,Cockpit AI,Revenue-Share Partner Program,Revenue Cohort program — revenue-share model; contact via cal.com/cockpit-ai-tkthdj
+2026-03-29,ElevenCreative (ElevenLabs),Yes — 22% recurring,22% commission for first 12 months per referral via PartnerStack; elevenlabs.io/affiliates
+2026-03-29,Benchspan,Unconfirmed,No public affiliate page found; early-stage LLM eval tool
+2026-03-29,Writesonic,Yes — 30% Recurring,30% recurring commission via FirstPromoter; writesonic.com/affiliates
+2026-03-30,Klariqo AI,Unconfirmed — Check klariqo.com,AI voice assistant for SMBs; 213 upvotes on PH; Shopify app available; no public affiliate page confirmed — check klariqo.com/affiliate directly
+2026-03-30,Raydian AI,Unconfirmed — Early Alpha,AI project execution engine (converts requirements to plans); early alpha stage; no affiliate page confirmed yet — watch for launch
+2026-03-30,Pensieve AI (agents),Unconfirmed — Enterprise Focus,Company-wide AI context agent; enterprise/gov focus; no consumer affiliate program found
+2026-03-30,Windsurf,Yes — Partner Portal + Referral Program,Fastest-growing SaaS (Ramp March 2026); OpenAI acquisition buzz; Cascade AI agent; windsurf.com/partnerships + windsurf.com/refer

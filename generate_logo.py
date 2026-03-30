@@ -1,7 +1,7 @@
 import requests
 import base64
 
-API_KEY = "AIzaSyDtm_wNCZD77H5PsKs6Y_eG1jck9-FOc1k"
+API_KEY = "AIzaSyDYPMQD3puji9rX2sWAQpmt_FKk4J56_ow"
 url = f"https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key={API_KEY}"
 
 payload = {

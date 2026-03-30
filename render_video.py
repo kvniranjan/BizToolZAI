@@ -2,7 +2,7 @@ import os, json, requests, base64, subprocess
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 
-GEMINI_KEY = "AIzaSyDtm_wNCZD77H5PsKs6Y_eG1jck9-FOc1k"
+GEMINI_KEY = "AIzaSyDYPMQD3puji9rX2sWAQpmt_FKk4J56_ow"
 ELEVENLABS_KEY = "2430b417f4d4a39161a9164953d80c62ff4d5cf19734e73a9dba9094ac474949"
 VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
 
