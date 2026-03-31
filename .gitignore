@@ -22,3 +22,9 @@ client_secret.json
 get_token_v2.py
 exchange_token.py
 tiktok_config.json
+.env
+render_video.py
+render_video_v2.py
+video_factory.py
+generate_logo.py
+config.py
