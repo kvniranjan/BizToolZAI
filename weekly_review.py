@@ -11,7 +11,7 @@ from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 
 WORKSPACE = "/root/.openclaw/workspace"
-GEMINI_KEY = "AIzaSyDYPMQD3puji9rX2sWAQpmt_FKk4J56_ow"
+# Key loaded from config.py
 
 with open(f"{WORKSPACE}/youtube_token.json") as f:
     tok = json.load(f)

@@ -10,11 +10,12 @@ Runs at 5 PM EST (22:00 UTC) every day.
 """
 
 import os, json, requests, base64, subprocess, re, sys
+from config import GEMINI_KEY, ELEVENLABS_KEY
 from datetime import datetime
 
 # ─── CONFIG ───────────────────────────────────────────────────────────────────
-GEMINI_KEY    = "AIzaSyDYPMQD3puji9rX2sWAQpmt_FKk4J56_ow"
-ELEVENLABS_KEY= "sk_dfb370e328b5f99b4300f0f5635c250f76ec01e5c74218c3"
+# Key loaded from config.py
+# Key loaded from config.py
 VOICE_ID      = "JBFqnCBsd6RMkjVDRZzb"
 WORKSPACE     = "/root/.openclaw/workspace"
 TELEGRAM_CHAT = "1014391339"
@@ -38,29 +39,53 @@ def gemini(prompt):
 # ─── STEP 1: RESEARCH & SCRIPT ────────────────────────────────────────────────
 log("🔍 Researching viral dark history topic...")
 
-research_prompt = """You are a viral YouTube Shorts scriptwriter for "Obscured History" — a dark history and unsolved mystery channel.
+research_prompt = """You are an expert viral YouTube Shorts scriptwriter for "Obscured History" — a dark history and unsolved mystery channel optimised for maximum watch-through rate.
 
-Your job: pick a REAL historical mystery or dark event that is:
-1. Highly specific and shocking (not overused like Titanic or Bermuda Triangle)
-2. Has a clear unanswered question that keeps viewers watching
-3. Under-covered — something most people have never heard of
-4. Emotionally gripping — fear, disbelief, or fascination
+YOUR MOST IMPORTANT GOAL: Write a script where viewers physically cannot stop watching before it ends.
 
-Generate a 45-55 second script. The FIRST sentence must be a pattern-interrupt hook that makes someone STOP scrolling instantly.
+TOPIC SELECTION RULES (follow strictly):
+1. ✅ Pick a REAL event that 95% of people have NEVER heard of — avoid Dyatlov Pass, Titanic, Bermuda Triangle, Jack the Ripper, Amelia Earhart, Roswell (all overused)
+2. ✅ The event must have a SHOCKING unanswered element — something that defies explanation even today
+3. ✅ Prefer events with SPECIFIC vivid details (names, dates, exact locations, physical evidence)
+4. ✅ The mystery must be UNRESOLVED — "what really happened" must still be open
+5. ✅ Pick something that sounds impossible — "this CAN'T be real" reaction drives shares
+
+HOOK RULES (the first 3 seconds determine everything):
+- Must create an OPEN LOOP instantly — viewer must need to know what happened
+- Use a specific shocking detail, not a vague tease
+- Examples of great hooks:
+  * "They found a ship full of dead crew, but all the food was still warm."
+  * "A town of 600 people disappeared overnight. No bodies. No wreckage. Just silence."
+  * "She was photographed at a party. The problem? She had been dead for 3 years."
+- Avoid weak hooks like "In 1959..." or "Have you heard of..." — these lose viewers immediately
+
+SCRIPT STRUCTURE FOR MAX RETENTION:
+1. HOOK (0-3s): Shocking statement that creates an open loop
+2. CONTEXT (3-15s): Brief, vivid scene-setting — make viewer feel they're there
+3. ESCALATION (15-35s): Stack shocking detail upon shocking detail — each one more bizarre
+4. THE UNANSWERED QUESTION (35-45s): What do we still NOT know? Lean into the mystery
+5. CALL TO ACTION (45-50s): "What do YOU think happened?" — drives comments
+
+SCRIPT WRITING RULES:
+- Every sentence must earn its place — cut anything that doesn't add tension or information
+- Use short punchy sentences. Never long winding ones.
+- Speak directly to the viewer — "you", "imagine", "picture this"
+- No markdown, no asterisks, no stage directions. Pure spoken words only.
+- Length: 45-52 seconds when spoken at a medium pace
 
 Output strictly as JSON:
 {
-  "title": "YouTube title with #Shorts",
-  "hook": "The shocking opening sentence (under 10 words)",
-  "voiceover": "Full clean spoken script. No markdown, no asterisks, no stage directions. Pure spoken words only.",
+  "title": "Specific shocking YouTube title under 60 chars with #Shorts — must make someone click",
+  "hook": "The exact opening sentence — under 12 words, creates instant open loop",
+  "voiceover": "Full script following the 5-part structure above. Pure spoken words. No markdown.",
   "image_prompts": [
-    "Cinematic ultra-realistic dark historical photo, 9:16 vertical, scene 1",
-    "Cinematic ultra-realistic dark historical photo, 9:16 vertical, scene 2",
-    "Cinematic ultra-realistic dark historical photo, 9:16 vertical, scene 3",
-    "Cinematic ultra-realistic dark historical photo, 9:16 vertical, scene 4"
+    "Cinematic ultra-realistic dark atmospheric historical photo, moody lighting, 9:16 vertical — matching scene 1 of the script",
+    "Cinematic ultra-realistic dark atmospheric historical photo, moody lighting, 9:16 vertical — matching scene 2",
+    "Cinematic ultra-realistic dark atmospheric historical photo, moody lighting, 9:16 vertical — matching scene 3",
+    "Cinematic ultra-realistic dark atmospheric historical photo, moody lighting, 9:16 vertical — matching scene 4"
   ],
-  "description": "YouTube description with hashtags",
-  "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"]
+  "description": "YouTube description 150 words with relevant hashtags #ObscuredHistory #Mystery #DarkHistory #Shorts",
+  "tags": ["ObscuredHistory", "UnsolvedMystery", "DarkHistory", "TrueHistory", "Shorts"]
 }"""
 
 raw = gemini(research_prompt)

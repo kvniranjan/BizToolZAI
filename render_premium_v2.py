@@ -1,7 +1,8 @@
 import os, requests, subprocess, re
+from config import GEMINI_KEY, ELEVENLABS_KEY
 import whisper
 
-ELEVENLABS_KEY = "sk_dfb370e328b5f99b4300f0f5635c250f76ec01e5c74218c3"
+# Key loaded from config.py
 VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
 
 SCRIPT = """February 1959. Nine experienced Russian hikers venture into the frozen Dyatlov Pass. They never return.
