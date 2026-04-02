@@ -207,13 +207,13 @@ subprocess.run(["ffmpeg","-y","-f","concat","-safe","0","-i",cl,"-c","copy",vid]
 
 # Mix music
 music_mix = f"/tmp/music_{date_str}.mp3"
-subprocess.run(["ffmpeg","-y","-i",f"{WORKSPACE}//root/.openclaw/workspace/videos/audio/background_music.mp3",
+subprocess.run(["ffmpeg","-y","-i",f"{WORKSPACE}/videos/audio/background_music.mp3",
                "-t", str(duration), "-af", f"afade=t=in:st=0:d=2,afade=t=out:st={duration-3:.1f}:d=3,volume=0.07",
                music_mix], capture_output=True)
-audio_mix = f"/tmp/amix_{date_str}.aac"
+audio_mix = f"/tmp/amix_{date_str}.mp3"
 subprocess.run(["ffmpeg","-y","-i",audio_path,"-i",music_mix,
-               "-filter_complex","[0:a][1:a]amix=inputs=2:duration=first[a]",
-               "-map","[a]","-c:a","aac","-b:a","192k", audio_mix], capture_output=True)
+               "-filter_complex","[1:a]volume=0.07[bg];[0:a][bg]amix=inputs=2:duration=first[out]",
+               "-map","[out]", audio_mix], capture_output=True)
 
 # Final with captions
 cmd = ["ffmpeg","-y","-i",vid,"-i",audio_mix,
