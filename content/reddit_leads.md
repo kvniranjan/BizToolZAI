@@ -1,13 +1,25 @@
-# Reddit Leads
+# Reddit Opportunity Scout - AI Tool Leads
 
-## Thread 1: "What tools do you use to automate your business?"
-**Subreddit:** r/Entrepreneur
-**URL:** https://www.reddit.com/r/Entrepreneur/comments/1qp2ovh/what_tools_do_you_use_to_automate_your_business/
+## Thread 1
+**Subreddit:** r/SaaS
+**Traffic Rating:** High
+**Thread Topic:** How to automate early-stage SaaS customer support?
+**Tool Mentioned:** Answrr
 **Draft Reply:**
-I’ve been testing a few different stacks recently. Zapier and Make are standard for gluing things together, but for actual business functions, I've had great success leaning into purpose-built AI tools instead of trying to hack together zaps. For example, I’ve been using **Munch** to automate my video content repurposing—it takes one long video and automatically edits it into shorts. If you are looking to build internal tools or customer-facing apps without a dev team, **Lovable** is incredible for generating production-ready code. I actually did a deep dive review on how these compare to traditional automation workflows if you're interested in checking out the pros/cons!
+Hey there, automating support early on is definitely the right move so you can focus on building. I've seen a lot of founders get bogged down answering the same 10 questions. You might want to check out Answrr for this. It hooks right into your existing docs and handles the repetitive queries surprisingly well without sounding like a robotic script. We actually did a full review on how it compares to standard chatbots here: [Link to Review]. Hope that helps you reclaim some hours!
 
-## Thread 2: "Automation with AI: What did you try, what worked, and what didn't?"
+## Thread 2
 **Subreddit:** r/Entrepreneur
-**URL:** https://www.reddit.com/r/Entrepreneur/comments/1qvy2fm/automation_with_ai_what_did_you_try_what_worked/
+**Traffic Rating:** High
+**Thread Topic:** Looking for an AI tool to repurpose long-form video podcasts into shorts
+**Tool Mentioned:** Munch
 **Draft Reply:**
-What definitely *didn't* work for me was trying to force ChatGPT into highly specific workflows it wasn't built for. What *did* work was adopting niche AI tools that solve one problem extremely well. For customer support, **Answrr** has been a game-changer for automating ticket resolution without sounding like a robotic chatbot. And for actually building the software tools I needed internally, I switched to **Lovable**—it generates full-stack code much better than just piecing together generic AI outputs. I wrote a review recently on my blog detailing exactly how I implemented these if you want the full breakdown!
+If you're dealing with long-form podcasts, manually finding the "viral" moments is super tedious. Munch is probably exactly what you're looking for. It uses AI to scan your entire video, extract the most engaging clips, and even auto-generates the captions formatted for TikTok/Reels. It saves hours of video editing per episode. I wrote up a detailed breakdown of how it works and its pros/cons here if you want to see it in action before trying: [Link to Review]. Good luck with the content engine!
+
+## Thread 3
+**Subreddit:** r/saasproductsupdates
+**Traffic Rating:** Low
+**Thread Topic:** What's the best affiliate management software for scaling partner revenue?
+**Tool Mentioned:** Partnero
+**Draft Reply:**
+PartnerStack is the giant in the room, but if you're looking for something that is incredibly easy to set up and very founder-friendly, I highly recommend Partnero. It lets you run affiliate, referral, and newsletter partner programs all from one dashboard. The UI is super clean and the pricing is much more accessible for growing SaaS products. We covered a deep-dive review of it recently here: [Link to Review]. Definitely worth a look before locking into a massive enterprise contract!

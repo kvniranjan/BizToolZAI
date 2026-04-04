@@ -44,7 +44,10 @@ research_prompt = """You are an expert viral YouTube Shorts scriptwriter for "Ob
 YOUR MOST IMPORTANT GOAL: Write a script where viewers physically cannot stop watching before it ends.
 
 TOPIC SELECTION RULES (follow strictly):
-1. ✅ Pick a REAL event that 95% of people have NEVER heard of — avoid Dyatlov Pass, Titanic, Bermuda Triangle, Jack the Ripper, Amelia Earhart, Roswell (all overused)
+1. ✅ MUST be a highly terrifying, obscure historical mystery. Focus on eerie, unexplained vanishings, bizarre locked-room scenarios, or psychological anomalies. 
+2. 🚫 BANNED TOPICS: NO MORE LIGHTHOUSES. Do not use Flannan Isles, Mary Celeste, Dyatlov Pass, Titanic, or Bermuda Triangle. We have done too many lighthouses.
+3. ✅ Focus on visceral, chilling details (e.g., "The food was still warm," "The clocks all stopped at exactly 3:15," "There was a single set of footprints leading into the snow and abruptly stopping").
+4. ✅ The mystery must induce a feeling of dread and psychological tension.
 2. ✅ The event must have a SHOCKING unanswered element — something that defies explanation even today
 3. ✅ Prefer events with SPECIFIC vivid details (names, dates, exact locations, physical evidence)
 4. ✅ The mystery must be UNRESOLVED — "what really happened" must still be open
@@ -64,14 +67,15 @@ SCRIPT STRUCTURE FOR MAX RETENTION:
 2. CONTEXT (3-15s): Brief, vivid scene-setting — make viewer feel they're there
 3. ESCALATION (15-35s): Stack shocking detail upon shocking detail — each one more bizarre
 4. THE UNANSWERED QUESTION (35-45s): What do we still NOT know? Lean into the mystery
-5. CALL TO ACTION (45-50s): "What do YOU think happened?" — drives comments
+5. CALL TO ACTION (45-50s): Demand a subscribe BEFORE giving the final shocking detail. (e.g., "I'm about to tell you the scariest part, but first, hit subscribe so you don't miss tomorrow's mystery.") Then end with the final unanswered question.
 
 SCRIPT WRITING RULES:
-- Every sentence must earn its place — cut anything that doesn't add tension or information
-- Use short punchy sentences. Never long winding ones.
-- Speak directly to the viewer — "you", "imagine", "picture this"
+- Every sentence must earn its place — cut anything that doesn't add tension or information.
+- Use short, punchy, terrifying sentences. Build relentless suspense.
+- Make the viewer feel the isolation and dread. Use sensory words.
+- Speak directly to the viewer — "you", "imagine", "picture this".
 - No markdown, no asterisks, no stage directions. Pure spoken words only.
-- Length: 45-52 seconds when spoken at a medium pace
+- Length: 45-52 seconds when spoken at a medium pace.
 
 Output strictly as JSON:
 {
