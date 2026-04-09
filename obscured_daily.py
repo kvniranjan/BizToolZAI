@@ -69,6 +69,9 @@ SCRIPT STRUCTURE FOR MAX RETENTION:
 4. THE UNANSWERED QUESTION (35-45s): What do we still NOT know? Lean into the mystery
 5. CALL TO ACTION (45-50s): Demand a subscribe BEFORE giving the final shocking detail. (e.g., "I'm about to tell you the scariest part, but first, hit subscribe so you don't miss tomorrow's mystery.") Then end with the final unanswered question.
 
+IMAGE PROMPT RULES:
+- Historical accuracy is PARAMOUNT. If the ship was a wooden sail schooner, the prompt MUST specify 'wooden sail schooner'. Do not use generic terms like 'massive ship' if it contradicts historical facts. Our viewers are history buffs and will penalize inaccuracies.
+
 SCRIPT WRITING RULES:
 - Every sentence must earn its place — cut anything that doesn't add tension or information.
 - Use short, punchy, terrifying sentences. Build relentless suspense.
@@ -138,18 +141,34 @@ log("🖼️ Generating images via Imagen 4...")
 images = []
 for i, prompt in enumerate(data["image_prompts"]):
     img_path = f"{WORKSPACE}/videos/images/scene_{date_str}_{i+1}.jpg"
-    r = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key={GEMINI_KEY}",
-        json={"instances": [{"prompt": prompt}], "parameters": {"sampleCount": 1, "aspectRatio": "9:16"}},
-        headers={"Content-Type": "application/json"}
-    )
-    if r.status_code == 200:
+    
+    def fetch_img(p):
+        return requests.post(
+            f"https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key={GEMINI_KEY}",
+            json={"instances": [{"prompt": p}], "parameters": {"sampleCount": 1, "aspectRatio": "9:16"}},
+            headers={"Content-Type": "application/json"}
+        )
+        
+    r = fetch_img(prompt)
+    resp = r.json()
+    
+    if r.status_code == 200 and "predictions" in resp:
         with open(img_path, "wb") as f:
-            f.write(base64.b64decode(r.json()["predictions"][0]["bytesBase64Encoded"]))
+            f.write(base64.b64decode(resp["predictions"][0]["bytesBase64Encoded"]))
         images.append(img_path)
         log(f"  ✅ Scene {i+1}")
     else:
-        log(f"  ❌ Scene {i+1}: {r.text[:100]}")
+        log(f"  ⚠️ Scene {i+1} failed (likely safety). Retrying with generic fallback prompt...")
+        fallback = "Cinematic dark history background, atmospheric, moody, blank slate, highly detailed, 9:16 vertical"
+        r = fetch_img(fallback)
+        resp = r.json()
+        if r.status_code == 200 and "predictions" in resp:
+            with open(img_path, "wb") as f:
+                f.write(base64.b64decode(resp["predictions"][0]["bytesBase64Encoded"]))
+            images.append(img_path)
+            log(f"  ✅ Scene {i+1} (Fallback)")
+        else:
+            log(f"  ❌ Scene {i+1}: {r.text[:100]}")
 
 if not images:
     log("❌ No images generated")

@@ -28,3 +28,4 @@ render_video_v2.py
 video_factory.py
 generate_logo.py
 config.py
+content/broke_economist/output/*.mp4
