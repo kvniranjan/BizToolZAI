@@ -1,0 +1,21 @@
+/root/.openclaw/workspace/be_pipeline_v3.py:4: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+[15:35:53] 1. Generating Script & Imagen Prompts via Gemini...
+[15:36:01] 2. Generating Voiceover...
+[15:36:14] 3. Generating Captions...
+/root/.openclaw/workspace/venv/lib/python3.12/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
+  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
+[15:36:36] 4. Generating Images with Kie.ai (Imagen 4)...
+[15:36:36] Started Imagen task: f3d6368ffb7ba6b3ea271274d72210c6
+[15:36:37] Started Imagen task: da8dffd84143a67fd2f63c56fb2e88f2
+[15:36:37] Started Imagen task: c9c73dc6b18910099b6d10bff39f3fbe
+[15:36:37] Polling Imagen tasks...
+[15:51:51] Downloading images...
+[15:51:51] No images generated. Exiting.

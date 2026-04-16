@@ -29,3 +29,12 @@ video_factory.py
 generate_logo.py
 config.py
 content/broke_economist/output/*.mp4
+youtube_token_be.json
+drive_token.json
+client_secret_drive.json
+serviceAccountKey.json
+*.mp3
+*.mp4
+content/broke_economist/v4_test/*
+content/broke_economist/v3_test/*
+content/broke_economist/v2_test/*

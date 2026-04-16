@@ -1,0 +1,21 @@
+/root/.openclaw/workspace/be_pipeline_v2.py:4: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+[12:32:39] 1. Generating Script & Kling Prompts via Gemini...
+[12:32:54] 2. Generating Voiceover...
+[12:33:07] 3. Generating Captions...
+/root/.openclaw/workspace/venv/lib/python3.12/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
+  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
+[12:33:23] 4. Generating Videos with Kling...
+[12:33:23] Started Kling task: 46aa83bdb3f0b649cc40c8e4c58f450a
+[12:33:24] Started Kling task: b50ea65f7460a629825e022a38fdc205
+[12:33:24] Started Kling task: 0fa17d46eb9311cc711d00684970254d
+[12:33:24] Polling Kling tasks (this takes 5-10 mins)...
+[13:34:11] Downloading videos...
+[13:34:11] No videos generated. Exiting.

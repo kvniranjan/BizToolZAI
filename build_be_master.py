@@ -23,7 +23,29 @@ def build_master_video():
     clip_duration = 5 
     
     # Pre-load clips to avoid constant disk reads/errors
-    loaded_clips = [VideoFileClip(f).resize((1920, 1080)) for f in stock_files]
+    
+    # Resize and crop to 9:16 vertical format (1080x1920) for YouTube Shorts
+    loaded_clips = []
+    for f in stock_files:
+        clip = VideoFileClip(f)
+        # Crop center to 9:16
+        w, h = clip.size
+        target_ratio = 1080 / 1920
+        clip_ratio = w / h
+        if clip_ratio > target_ratio:
+            # Crop width
+            new_w = int(h * target_ratio)
+            x_center = w / 2
+            clip = clip.crop(x1=x_center - new_w/2, y1=0, x2=x_center + new_w/2, y2=h)
+        else:
+            # Crop height
+            new_h = int(w / target_ratio)
+            y_center = h / 2
+            clip = clip.crop(x1=0, y1=y_center - new_h/2, x2=w, y2=y_center + new_h/2)
+        
+        clip = clip.resize((1080, 1920))
+        loaded_clips.append(clip)
+
     
     while current_time < total_duration:
         raw_clip = random.choice(loaded_clips)

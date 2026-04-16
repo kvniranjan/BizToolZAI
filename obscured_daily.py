@@ -231,11 +231,11 @@ subprocess.run(["ffmpeg","-y","-f","concat","-safe","0","-i",cl,"-c","copy",vid]
 # Mix music
 music_mix = f"/tmp/music_{date_str}.mp3"
 subprocess.run(["ffmpeg","-y","-i",f"{WORKSPACE}/videos/audio/background_music.mp3",
-               "-t", str(duration), "-af", f"afade=t=in:st=0:d=2,afade=t=out:st={duration-3:.1f}:d=3,volume=0.07",
+               "-t", str(duration), "-af", f"afade=t=in:st=0:d=2,afade=t=out:st={duration-3:.1f}:d=3,volume=0.15",
                music_mix], capture_output=True)
 audio_mix = f"/tmp/amix_{date_str}.mp3"
 subprocess.run(["ffmpeg","-y","-i",audio_path,"-i",music_mix,
-               "-filter_complex","[1:a]volume=0.07[bg];[0:a][bg]amix=inputs=2:duration=first[out]",
+               "-filter_complex","[0:a]volume=1.0[v];[1:a]volume=1.0[bg];[v][bg]amix=inputs=2:duration=first:dropout_transition=2[out]",
                "-map","[out]", audio_mix], capture_output=True)
 
 # Final with captions
