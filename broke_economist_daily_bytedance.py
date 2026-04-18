@@ -35,8 +35,9 @@ selected_topic = topic_resp.text.strip().strip('"')
 log(f"Dynamic Topic chosen: {selected_topic}")
 
 prompt = f"""You are 'The Broke Economist'. Write a fast-paced, highly engaging 45-second YouTube Short script about: '{selected_topic}'.
-Tone: cynical, dark humor, exposing the game, aggressive pacing. Hook the viewer in the first 2 seconds with a controversial statement.
-Use short, punchy sentences. High energy.
+Tone: cynical, dark humor, exposing the game, aggressive pacing. 
+CRITICAL RULE 1 (THE HOOK): The first 3 seconds MUST be a high-retention, controversial statement that makes the viewer freeze. Use Alex Hormozi style "open loops". DO NOT say "Here's why", "Did you know", or "Welcome to". Start mid-thought with a punch to the face.
+CRITICAL RULE 2 (RETENTION): Introduce a "villain" (banks, landlords, boomers, corporations). Make the viewer angry. Keep sentences to 5-8 words. High energy. Fast cuts.
 
 Format the output EXACTLY as valid JSON with no markdown formatting:
 {{

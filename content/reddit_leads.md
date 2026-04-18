@@ -1,15 +1,15 @@
-# Reddit Leads - AI Tools
+# Reddit Leads Drafts
 
 ## Lead 1
 **Subreddit:** r/smallbusiness
 **Traffic Rating:** High
-**Thread Topic:** Where do you actually go to find AI tools that work?
-**Draft Reply:**
-It can definitely feel like 90% of the AI space is just hype right now. I've found that the best approach is looking for tools that solve one specific bottleneck rather than promising to do everything. For instance, if you're spending too much time on customer support, Answrr has been solid for automating ticket responses. If marketing content is your bottleneck, Munch is great for chopping up long videos into shorts. We recently reviewed a bunch of these practical tools—happy to share the link if you want to see the full breakdown!
+**Thread Topic:** How Can I Leverage AI to Automate Business Processes?
+**Draft:**
+If you're looking to start automating without needing a massive enterprise budget, I'd suggest starting with customer-facing repetitive tasks. For example, using a tool like Answrr can completely automate your basic customer support tickets so your team only handles complex issues. If you have unique internal workflows, you can actually spin up custom internal tools using Lovable in just a few minutes without knowing how to code. I recently did a full review on these tools here: [Link to Review]. Hope this helps give you a starting point!
 
 ## Lead 2
 **Subreddit:** r/smallbusiness
 **Traffic Rating:** High
-**Thread Topic:** What AI tool for creating business websites?
-**Draft Reply:**
-While Wix and Framer have good AI features for basic landing pages, if you're looking to build something slightly more custom (like a site with a booking portal, a client dashboard, or specific business logic), you might want to look at Lovable. It's essentially an AI developer tool that lets you build full web apps just by describing what you need. It might be overkill for a simple brochure site, but if your business needs custom features, it's a massive time-saver. We actually did a deep-dive review on it recently if you want to check out how it works in practice!
+**Thread Topic:** Has anyone actually used AI agents to automate real work in their business - or is it still overhyped?
+**Draft:**
+It's definitely not just hype if you apply it to the right bottlenecks. A lot of people get stuck trying to make one AI agent do everything. Instead, use specific AI tools for specific tasks. For example, using Munch to automate breaking down long-form content into social clips saves hours of real marketing work. For operations, instead of a generic agent, I've had success using Lovable to quickly generate custom web apps tailored exactly to my team's data entry needs. You can check out my breakdown of these tools and how they perform in the real world here: [Link to Review]. HITL is definitely still the way to go for the final say, though!
