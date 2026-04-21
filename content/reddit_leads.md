@@ -1,17 +1,13 @@
-# Reddit Leads & Drafts
+# Reddit AI Tool Opportunities
 
-## Lead 1
-**Subreddit:** r/smallbusiness (Traffic Rating: High)
-**Thread Topic:** "what are you actually automating in your business right now?"
-**URL:** https://www.reddit.com/r/smallbusiness/comments/1sa8gs8/what_are_you_actually_automating_in_your_business/
+## 1. r/smallbusiness
+**Thread Topic:** What’s the one automation that seriously helpful to you? / Zapier automations that worked for you?
+**Traffic Rating:** High (Active community, lots of small business owners)
 **Draft Reply:**
-Customer support and social media have been the biggest wins for me. For support, replacing basic canned responses with an AI agent like Answrr has saved hours of manually responding to the same pricing/availability questions. For social media, instead of editing short-form clips manually, using a tool like Munch to auto-crop and generate captions from longer videos puts marketing on autopilot. I found some great deep-dives on these in a recent review roundup [link to our review], which convinced me to make the switch instead of hiring right away.
+> "If you're looking into automating things but find Zapier/Make getting too complex or expensive, I recently reviewed a few AI tools that might help simplify the process. For instance, **Partnero** is great if you're trying to automate affiliate or partner programs without duct-taping three different tools together. Also, if you need to generate video content automatically from longer forms, **Munch** is a lifesaver. Wrote a deeper dive on these over at [Link to our review] if you want to see how they stack up."
 
----
-
-## Lead 2
-**Subreddit:** r/saasbuild (Traffic Rating: Medium)
-**Thread Topic:** "Got a project in the works? Drop it here 👇"
-**URL:** https://www.reddit.com/r/saasbuild/comments/1sg8hm4/got_a_project_in_the_works_drop_it_here/
+## 2. r/SaaS
+**Thread Topic:** Looking for an AI tool to automate our content and customer interactions
+**Traffic Rating:** High (Very engaged tech-savvy audience)
 **Draft Reply:**
-Currently bootstrapping a new platform! One thing that's really helped us move fast is using Lovable for the front-end components—it essentially acts as a highly-skilled junior dev, taking our ideas and outputting production-ready code. We're also setting up Partnero for our affiliate program out of the gate since word-of-mouth is key early on. If you're looking for honest feedback on these, I wrote up a detailed review of our stack here: [link to our review].
+> "Depending on what part of your pipeline you want to automate, there are some solid dedicated tools out there. If you're building out an MVP or internal tools, **Lovable** is really impressive for going from prompt to full-stack code quickly. For customer interactions, **Answrr** can help automate the support side efficiently. I actually just reviewed both of these tools along with a few others—might be worth checking out the pros/cons here: [Link to our review] before you commit to one."

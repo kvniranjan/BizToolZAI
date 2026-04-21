@@ -1,24 +1,18 @@
 import os, requests, json
+from dotenv import load_dotenv
 
-KIE_API_KEY = "sk-0f7f2b1d6e3c4a9b8a1e2f4d6c8b0a9f" # Placeholder, will try to load from config
-try:
-    from config import KIE_API_KEY
-except ImportError:
-    pass
+load_dotenv('/root/.openclaw/workspace/.env')
+KIE_API_KEY = os.getenv("KIE_API_KEY")
 
 headers_kie = {"Authorization": f"Bearer {KIE_API_KEY}", "Content-Type": "application/json"}
 payload = {
     "model": "bytedance/seedance-2-fast",
-    "params": {
-        "prompt": "a simple test image of a red apple, highly detailed, photorealistic",
-        "aspect_ratio": "9:16",
-        "duration": 5,
-        "web_search": False,
-        "nsfw_checker": False
+    "input": {
+        "prompt": "a simple test image of a red apple",
     }
 }
 
-print("Testing Kie.ai API...")
+print("Testing Kie.ai with input wrapper...")
 try:
     r = requests.post("https://api.kie.ai/api/v1/jobs/createTask", json=payload, headers=headers_kie, timeout=10)
     print(f"Status: {r.status_code}")
