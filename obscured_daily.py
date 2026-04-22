@@ -37,15 +37,28 @@ def gemini(prompt):
     return r.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
 
 # ─── STEP 1: RESEARCH & SCRIPT ────────────────────────────────────────────────
+
+import random
+eras = ["Roman Empire", "Medieval Europe", "19th Century Wild West", "Victorian London", "Soviet Union", "Feudal Japan", "Ancient Egypt", "1920s Prohibition Era", "Cold War Era", "Age of Sail", "Tudor England"]
+themes = ["Unexplained Disappearance", "Bizarre Locked-Room Mystery", "Psychological Anomaly", "Unsolved Mass Panic", "Cryptic Message Left Behind", "Eerie Medical Mystery", "Unexplainable Artifact"]
+
+random_era = random.choice(eras)
+random_theme = random.choice(themes)
+
 log("🔍 Researching viral dark history topic...")
 
-research_prompt = """You are an expert viral YouTube Shorts scriptwriter for "Obscured History" — a dark history and unsolved mystery channel optimised for maximum watch-through rate.
+research_prompt = f"""You are an expert viral YouTube Shorts scriptwriter for "Obscured History" — a dark history and unsolved mystery channel optimised for maximum watch-through rate.
 
 YOUR MOST IMPORTANT GOAL: Write a script where viewers physically cannot stop watching before it ends.
 
+THIS SPECIFIC VIDEO MUST BE ABOUT:
+- ERA/SETTING: {random_era}
+- THEME/NATURE OF MYSTERY: {random_theme}
+Do NOT use a ship or a village vanishing. Create a brand new specific, historically grounded event in this era and theme.
+""" + """
 TOPIC SELECTION RULES (follow strictly):
 1. ✅ MUST be a highly terrifying, obscure historical mystery. Focus on eerie, unexplained vanishings, bizarre locked-room scenarios, or psychological anomalies. 
-2. 🚫 BANNED TOPICS: NO MORE LIGHTHOUSES. Do not use Flannan Isles, Mary Celeste, Dyatlov Pass, Titanic, or Bermuda Triangle. We have done too many lighthouses.
+2. 🚫 BANNED TOPICS: NO MORE LIGHTHOUSES. NO MORE GHOST SHIPS. NO MORE VANISHING VILLAGES. Do not use Flannan Isles, Mary Celeste, Dyatlov Pass, Titanic, or Bermuda Triangle.
 3. ✅ Focus on visceral, chilling details (e.g., "The food was still warm," "The clocks all stopped at exactly 3:15," "There was a single set of footprints leading into the snow and abruptly stopping").
 4. ✅ The mystery must induce a feeling of dread and psychological tension.
 2. ✅ The event must have a SHOCKING unanswered element — something that defies explanation even today
