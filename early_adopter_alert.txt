@@ -1,0 +1,10 @@
+Hi BOSS,
+
+Here is your Early Adopter Alert for today's top AI SaaS tools on Product Hunt:
+
+1. **Magic Patterns** (AI UI design and prototyping) - They have an affiliate program offering 10% per sale for 6 months (via Dub) or up to 30% recurring (via AffiliateOtter). This looks like a great opportunity to monetize UI/UX content!
+2. **Flow (Wispr Flow)** (Voice dictation and formatting for emails/Slack) - They also have an active affiliate program via Dub. Great for productivity-focused audiences.
+
+*(Note: T-Rex Label is also trending for computer vision datasets, but I couldn't find a public affiliate program for them yet.)*
+
+I've logged these details into `affiliate_log.csv` for your records. Let me know if you want me to sign up for any of these programs!
