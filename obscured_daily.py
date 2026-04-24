@@ -39,8 +39,8 @@ def gemini(prompt):
 # ─── STEP 1: RESEARCH & SCRIPT ────────────────────────────────────────────────
 
 import random
-eras = ["Roman Empire", "Medieval Europe", "19th Century Wild West", "Victorian London", "Soviet Union", "Feudal Japan", "Ancient Egypt", "1920s Prohibition Era", "Cold War Era", "Age of Sail", "Tudor England"]
-themes = ["Unexplained Disappearance", "Bizarre Locked-Room Mystery", "Psychological Anomaly", "Unsolved Mass Panic", "Cryptic Message Left Behind", "Eerie Medical Mystery", "Unexplainable Artifact"]
+eras = ["Soviet Union", "Cold War Era", "1950s Classified Facilities", "Iron Curtain"]
+themes = ["Unexplained Science Mystery", "Classified Biological Incident", "Radioactive Anomaly", "Unsolved Mass Panic", "Eerie Medical Mystery", "Military Cover-up", "Deep Underground Base Incident"]
 
 random_era = random.choice(eras)
 random_theme = random.choice(themes)
