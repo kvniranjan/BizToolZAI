@@ -301,7 +301,7 @@ body = {
     "snippet": {
         "title": data["title"],
         "description": data["description"],
-        "tags": data["tags"] + ["ObscuredHistory","Mystery","DarkHistory","Shorts"],
+        "tags": data.get("tags", []) + ["ObscuredHistory","Mystery","DarkHistory","Shorts"],
         "categoryId": "22",
         "defaultLanguage": "en"
     },
