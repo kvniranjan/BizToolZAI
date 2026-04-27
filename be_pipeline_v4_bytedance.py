@@ -161,7 +161,7 @@ subprocess.run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", f"{BE_DIR}/c
 
 
 log("4.5 Mixing Music...")
-MUSIC_FILE = f"{WORKSPACE}/Charlie.mp3"  # Standard aggressive/suspenseful track we have lying around
+MUSIC_FILE = f"{WORKSPACE}/videos/audio/background_music.mp3"  # Standard aggressive/suspenseful track we have lying around
 audio_mix = f"{BE_DIR}/audio_mixed.mp3"
 if os.path.exists(MUSIC_FILE):
     subprocess.run([

@@ -38,12 +38,23 @@ def gemini(prompt):
 
 # ─── STEP 1: RESEARCH & SCRIPT ────────────────────────────────────────────────
 
+
 import random
-eras = ["Soviet Union", "Cold War Era", "1950s Classified Facilities", "Iron Curtain"]
-themes = ["Unexplained Science Mystery", "Classified Biological Incident", "Radioactive Anomaly", "Unsolved Mass Panic", "Eerie Medical Mystery", "Military Cover-up", "Deep Underground Base Incident"]
+import json
+eras = ["Victorian Era", "Ancient Rome", "Middle Ages", "1920s Prohibition", "Wild West", "Tudor England", "Feudal Japan", "World War I", "1950s America", "Age of Discovery", "Ancient Egypt", "1800s Industrial Revolution"]
+themes = ["Unexplained Disappearance", "Bizarre Medical Anomaly", "Unsolved Mass Panic", "Eerie Cult Rituals", "Unexplained Cryptid Encounter", "Cursed Objects/Locations", "Royal Secret/Cover-up", "Unexplained Celestial Event"]
 
 random_era = random.choice(eras)
 random_theme = random.choice(themes)
+
+recent_titles = []
+try:
+    with open(f"{WORKSPACE}/yt_stats.json", "r") as yf:
+        yt_data = json.load(yf)
+        recent_titles = [v["title"] for v in yt_data.get("videos", [])[:10]]
+except:
+    pass
+banned_recent = "\n- ".join(recent_titles)
 
 log("🔍 Researching viral dark history topic...")
 
@@ -54,8 +65,14 @@ YOUR MOST IMPORTANT GOAL: Write a script where viewers physically cannot stop wa
 THIS SPECIFIC VIDEO MUST BE ABOUT:
 - ERA/SETTING: {random_era}
 - THEME/NATURE OF MYSTERY: {random_theme}
+
 Do NOT use a ship or a village vanishing. Create a brand new specific, historically grounded event in this era and theme.
+
+CRITICAL NEGATIVE CONSTRAINT - YOU MUST NOT REPEAT ANY THEME OR SETTING FROM THESE RECENT VIDEOS:
+- {banned_recent}
+NO SOVIET LABS. NO BUNKERS. NO RADIATION. NO SCIENTISTS VANISHING.
 """ + """
+
 TOPIC SELECTION RULES (follow strictly):
 1. ✅ MUST be a highly terrifying, obscure historical mystery. Focus on eerie, unexplained vanishings, bizarre locked-room scenarios, or psychological anomalies. 
 2. 🚫 BANNED TOPICS: NO MORE LIGHTHOUSES. NO MORE GHOST SHIPS. NO MORE VANISHING VILLAGES. Do not use Flannan Isles, Mary Celeste, Dyatlov Pass, Titanic, or Bermuda Triangle.
