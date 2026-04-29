@@ -42,7 +42,7 @@ def gemini(prompt):
 import random
 import json
 eras = ["Victorian Era", "Ancient Rome", "Middle Ages", "1920s Prohibition", "Wild West", "Tudor England", "Feudal Japan", "World War I", "1950s America", "Age of Discovery", "Ancient Egypt", "1800s Industrial Revolution"]
-themes = ["Unexplained Disappearance", "Bizarre Medical Anomaly", "Unsolved Mass Panic", "Eerie Cult Rituals", "Unexplained Cryptid Encounter", "Cursed Objects/Locations", "Royal Secret/Cover-up", "Unexplained Celestial Event"]
+themes = ["Bizarre Medical Anomaly", "Unsolved Mass Panic", "Eerie Cult Rituals", "Unexplained Cryptid Encounter", "Cursed Objects/Locations", "Royal Secret/Cover-up", "Unexplained Celestial Event", "Terrifying Ancient Weaponry", "Bizarre Historical Battles"]
 
 random_era = random.choice(eras)
 random_theme = random.choice(themes)
@@ -70,27 +70,27 @@ Do NOT use a ship or a village vanishing. Create a brand new specific, historica
 
 CRITICAL NEGATIVE CONSTRAINT - YOU MUST NOT REPEAT ANY THEME OR SETTING FROM THESE RECENT VIDEOS:
 - {banned_recent}
-NO SOVIET LABS. NO BUNKERS. NO RADIATION. NO SCIENTISTS VANISHING.
+NO SOVIET LABS. NO BUNKERS. NO RADIATION. NO VANISHINGS. NO MISSING CREWS. NO WARM FOOD. NO LOCKED ROOMS.
 """ + """
 
 TOPIC SELECTION RULES (follow strictly):
-1. ✅ MUST be a highly terrifying, obscure historical mystery. Focus on eerie, unexplained vanishings, bizarre locked-room scenarios, or psychological anomalies. 
-2. 🚫 BANNED TOPICS: NO MORE LIGHTHOUSES. NO MORE GHOST SHIPS. NO MORE VANISHING VILLAGES. Do not use Flannan Isles, Mary Celeste, Dyatlov Pass, Titanic, or Bermuda Triangle.
-3. ✅ Focus on visceral, chilling details (e.g., "The food was still warm," "The clocks all stopped at exactly 3:15," "There was a single set of footprints leading into the snow and abruptly stopping").
-4. ✅ The mystery must induce a feeling of dread and psychological tension.
-2. ✅ The event must have a SHOCKING unanswered element — something that defies explanation even today
-3. ✅ Prefer events with SPECIFIC vivid details (names, dates, exact locations, physical evidence)
-4. ✅ The mystery must be UNRESOLVED — "what really happened" must still be open
-5. ✅ Pick something that sounds impossible — "this CAN'T be real" reaction drives shares
+1. ✅ MUST be a highly terrifying, obscure historical mystery. Focus on curses, bizarre ancient battles, cryptids, terrifying inventions, unexplained artifacts, or mass psychological events.
+2. 🚫 BANNED TROPES & WORDS: NO VANISHING. NO DISAPPEARING. NO LOCKED ROOMS. NO WARM FOOD. NO EMPTY LABS OR BUNKERS. NO CREWS GONE MISSING. NEVER use the words "vanished", "disappeared", "warm food", "locked from the inside", "eyes wide", or "abandoned".
+3. 🚫 BANNED TOPICS: Ghost ships, Flannan Isles, Mary Celeste, Dyatlov Pass, Titanic, Bermuda Triangle, Soviet Labs.
+4. ✅ Focus on visceral, chilling details (e.g., "The artifact was still pulsing," "The entire army stopped marching at exactly the same second," "The journal entries were written in a language that wouldn't exist for 300 years").
+5. ✅ The mystery must induce a feeling of dread and psychological tension.
+6. ✅ The event must have a SHOCKING unanswered element — something that defies explanation even today
+7. ✅ Prefer events with SPECIFIC vivid details (names, dates, exact locations, physical evidence)
+8. ✅ Pick something that sounds impossible — "this CAN'T be real" reaction drives shares
 
 HOOK RULES (the first 3 seconds determine everything):
 - Must create an OPEN LOOP instantly — viewer must need to know what happened
 - Use a specific shocking detail, not a vague tease
 - Examples of great hooks:
-  * "They found a ship full of dead crew, but all the food was still warm."
-  * "A town of 600 people disappeared overnight. No bodies. No wreckage. Just silence."
-  * "She was photographed at a party. The problem? She had been dead for 3 years."
-- Avoid weak hooks like "In 1959..." or "Have you heard of..." — these lose viewers immediately
+  * "In 1518, an entire city started dancing until their feet bled, and no one knows why."
+  * "They found an ancient clockwork machine that accurately mapped the stars, 1,000 years before it was invented."
+  * "The general documented an army of winged beasts descending from the clouds. His diary was classified."
+- Avoid weak hooks like "In [year]..." or "Have you heard of..." — these lose viewers immediately
 
 SCRIPT STRUCTURE FOR MAX RETENTION:
 1. HOOK (0-3s): Paced visually. Start with rapid 2-4 word phrases. Shocking statement that creates an instant open loop. DO NOT start with 'In [year]'.
