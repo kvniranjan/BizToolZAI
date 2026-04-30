@@ -11,8 +11,6 @@ Runs at 5 PM EST (22:00 UTC) every day.
 
 import os, json, requests, base64, subprocess, re, sys
 from config import GEMINI_KEY, ELEVENLABS_KEY
-import os
-KIE_API_KEY = os.getenv("KIE_API_KEY")
 from datetime import datetime
 
 # ─── CONFIG ───────────────────────────────────────────────────────────────────
@@ -101,7 +99,7 @@ SCRIPT STRUCTURE FOR MAX RETENTION:
 4. THE UNANSWERED QUESTION (35-45s): What do we still NOT know? Lean into the mystery
 5. CALL TO ACTION (45-50s): Demand a subscribe BEFORE giving the final shocking detail. (e.g., "I'm about to tell you the scariest part, but first, hit subscribe so you don't miss tomorrow's mystery.") Then end with the final unanswered question.
 
-VIDEO PROMPT RULES:
+IMAGE PROMPT RULES:
 - Historical accuracy is PARAMOUNT. If the ship was a wooden sail schooner, the prompt MUST specify 'wooden sail schooner'. Do not use generic terms like 'massive ship' if it contradicts historical facts. Our viewers are history buffs and will penalize inaccuracies.
 
 SCRIPT WRITING RULES:
@@ -117,11 +115,11 @@ Output strictly as JSON:
   "title": "Specific shocking YouTube title under 60 chars with #Shorts — must make someone click",
   "hook": "The exact opening sentence — under 12 words, creates instant open loop",
   "voiceover": "Full script following the 5-part structure above. Pure spoken words. No markdown.",
-  "video_prompts": [
-    "Cinematic ultra-realistic cinematic historical tracking shot, moody lighting, 9:16 vertical — matching scene 1 of the script",
-    "Cinematic ultra-realistic cinematic historical tracking shot, moody lighting, 9:16 vertical — matching scene 2",
-    "Cinematic ultra-realistic cinematic historical tracking shot, moody lighting, 9:16 vertical — matching scene 3",
-    "Cinematic ultra-realistic cinematic historical tracking shot, moody lighting, 9:16 vertical — matching scene 4"
+  "image_prompts": [
+    "Cinematic ultra-realistic dark atmospheric historical photo, moody lighting, 9:16 vertical — matching scene 1 of the script",
+    "Cinematic ultra-realistic dark atmospheric historical photo, moody lighting, 9:16 vertical — matching scene 2",
+    "Cinematic ultra-realistic dark atmospheric historical photo, moody lighting, 9:16 vertical — matching scene 3",
+    "Cinematic ultra-realistic dark atmospheric historical photo, moody lighting, 9:16 vertical — matching scene 4"
   ],
   "description": "YouTube description 150 words with relevant hashtags #ObscuredHistory #Mystery #DarkHistory #Shorts",
   "tags": ["ObscuredHistory", "UnsolvedMystery", "DarkHistory", "TrueHistory", "Shorts"]
@@ -179,61 +177,42 @@ if duration > 59.0:
     log(f"✅ Voiceover sped up to 58.5s")
 
 
-# ─── STEP 3: VIDEOS VIA KIE.AI ───────────────────────────────────────────────────────────
-log("🎬 Generating videos via Kie.ai (Bytedance)...")
-import time
-headers_kie = {"Authorization": f"Bearer {KIE_API_KEY}", "Content-Type": "application/json"}
-tasks = []
-for i, prompt in enumerate(data.get("video_prompts", data.get("image_prompts", []))):
-    payload = {
-        "model": "bytedance/seedance-2-fast",
-        "input": {
-            "prompt": prompt,
-            "generate_audio": False,
-            "resolution": "720p",
-            "aspect_ratio": "9:16",
-            "duration": 5,
-            "nsfw_checker": False
-        }
-    }
-    r = requests.post("https://api.kie.ai/api/v1/jobs/createTask", json=payload, headers=headers_kie).json()
-    if 'data' in r and 'taskId' in r['data']:
-        tasks.append((i+1, r['data']['taskId']))
-        log(f"  Started Scene {i+1} task: {r['data']['taskId']}")
+# ─── STEP 3: IMAGES ───────────────────────────────────────────────────────────
+log("🖼️ Generating images via Imagen 4...")
+images = []
+for i, prompt in enumerate(data["image_prompts"]):
+    img_path = f"{WORKSPACE}/videos/images/scene_{date_str}_{i+1}.jpg"
+    
+    def fetch_img(p):
+        return requests.post(
+            f"https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key={GEMINI_KEY}",
+            json={"instances": [{"prompt": p}], "parameters": {"sampleCount": 1, "aspectRatio": "9:16"}},
+            headers={"Content-Type": "application/json"}
+        )
+        
+    r = fetch_img(prompt)
+    resp = r.json()
+    
+    if r.status_code == 200 and "predictions" in resp:
+        with open(img_path, "wb") as f:
+            f.write(base64.b64decode(resp["predictions"][0]["bytesBase64Encoded"]))
+        images.append(img_path)
+        log(f"  ✅ Scene {i+1}")
     else:
-        log(f"  ❌ Scene {i+1} failed to start: {r}")
+        log(f"  ⚠️ Scene {i+1} failed (likely safety). Retrying with generic fallback prompt...")
+        fallback = "Cinematic dark history background, atmospheric, moody, blank slate, highly detailed, 9:16 vertical"
+        r = fetch_img(fallback)
+        resp = r.json()
+        if r.status_code == 200 and "predictions" in resp:
+            with open(img_path, "wb") as f:
+                f.write(base64.b64decode(resp["predictions"][0]["bytesBase64Encoded"]))
+            images.append(img_path)
+            log(f"  ✅ Scene {i+1} (Fallback)")
+        else:
+            log(f"  ❌ Scene {i+1}: {r.text[:100]}")
 
-log("Polling video tasks...")
-videos = []
-for idx, t in tasks:
-    done = False
-    for _ in range(60): # 10 mins
-        try:
-            r = requests.get(f"https://api.kie.ai/api/v1/jobs/recordInfo?taskId={t}", headers=headers_kie).json()
-            state = r.get('data', {}).get('state')
-            if state == 'success':
-                res_json = json.loads(r['data']['resultJson'])
-                v_url = res_json['resultUrls'][0]
-                
-                # Download it
-                clip_path = f"{WORKSPACE}/videos/images/scene_{date_str}_{idx}.mp4"
-                v_data = requests.get(v_url).content
-                with open(clip_path, "wb") as f:
-                    f.write(v_data)
-                videos.append(clip_path)
-                log(f"  ✅ Scene {idx} downloaded")
-                done = True
-                break
-            elif state == 'fail' or state == 'failed':
-                log(f"  ❌ Scene {idx} failed: {r}")
-                done = True
-                break
-        except Exception as e:
-            pass
-        time.sleep(10)
-
-if not videos:
-    log("❌ No videos generated")
+if not images:
+    log("❌ No images generated")
     sys.exit(1)
 
 # ─── STEP 4: CAPTIONS (Whisper) ───────────────────────────────────────────────
@@ -261,23 +240,28 @@ log(f"✅ {idx-1} caption chunks")
 
 # ─── STEP 5: RENDER ───────────────────────────────────────────────────────────
 log("🎬 Rendering video...")
-n = len(videos)
+n = len(images)
 dpf = duration / n
 scenes = []
-for i, clip in enumerate(videos):
+for i, img in enumerate(images):
     out = f"/tmp/sc_{date_str}_{i}.mp4"
-    cmd = [
-        "ffmpeg", "-y", 
-        "-stream_loop", "-1",
-        "-i", clip, 
-        "-t", str(dpf),
-        "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1",
-        "-c:v", "libx264", "-preset", "fast", "-crf", "20",
-        "-pix_fmt", "yuv420p", "-r", "25",
-        out
-    ]
-    subprocess.run(cmd, capture_output=True)
-    scenes.append(out)
+    frames = int(dpf * 25) + 10
+    cmd = ["ffmpeg", "-y", "-loop", "1", "-t", str(dpf+1), "-i", img,
+           "-vf", f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
+                  f"zoompan=z='min(zoom+0.0008,1.25)':d={frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920:fps=25,"
+                  f"setsar=1,fade=t=in:st=0:d=0.4,fade=t=out:st={dpf-0.4:.2f}:d=0.4",
+           "-t", str(dpf), "-c:v", "libx264", "-preset", "fast", "-crf", "20",
+           "-pix_fmt", "yuv420p", "-r", "25", out]
+    r2 = subprocess.run(cmd, capture_output=True)
+    if r2.returncode == 0:
+        scenes.append(out)
+    else:
+        # fallback
+        cmd2 = ["ffmpeg", "-y", "-loop", "1", "-t", str(dpf), "-i", img,
+                "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1",
+                "-c:v", "libx264", "-preset", "fast", "-crf", "20", "-pix_fmt", "yuv420p", "-r", "25", out]
+        subprocess.run(cmd2, capture_output=True)
+        scenes.append(out)
 
 cl = f"/tmp/cl_{date_str}.txt"
 with open(cl, "w") as f:
