@@ -68,7 +68,7 @@ except Exception as e:
     log(f"JSON Parse failed: {e}")
     sys.exit(1)
 
-log(f"Title: {data['title']}")
+log(f"Title: {data['hook']}")
 
 # 3. ElevenLabs TTS
 log("3. Generating Voiceover...")
@@ -121,5 +121,170 @@ for idx, t in task_ids:
 
 log(f"Downloaded {len(video_paths)} videos.")
 
-# TODO: Add Whisper and FFmpeg stitching similar to obscured_daily
-log("Pipeline integration complete! Ready for stitching.")
+# ─── STEP 4: CAPTIONS (Whisper) ───────────────────────────────────────────────
+log("📝 Generating captions...")
+import whisper
+model = whisper.load_model("base")
+result = model.transcribe(audio_path, word_timestamps=True)
+
+srt_path = f"{BE_DIR}/captions.srt"
+srt_lines = []
+idx = 1
+for seg in result["segments"]:
+    if "words" not in seg: continue
+    words = seg["words"]
+    for i in range(0, len(words), 3):
+        w = words[i:i+3]
+        start, end = w[0]["start"], w[-1]["end"]
+        text = " ".join(x["word"].strip() for x in w).upper()
+        def t(s): return f"{int(s//3600):02d}:{int((s%3600)//60):02d}:{s%60:06.3f}".replace(".",",")
+        srt_lines.append(f"{idx}\n{t(start)} --> {t(end)}\n{text}\n")
+        idx += 1
+with open(srt_path, "w") as f:
+    f.write("\n".join(srt_lines))
+log(f"✅ {idx-1} caption chunks")
+
+# ─── STEP 5: RENDER ───────────────────────────────────────────────────────────
+log("🎬 Rendering video...")
+n = len(video_paths)
+import subprocess
+res = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+    "-of", "default=noprint_wrappers=1:nokey=1", audio_path], capture_output=True, text=True)
+duration = float(res.stdout.strip())
+dpf = duration / n
+scenes = []
+for i, clip in enumerate(video_paths):
+    out = f"{BE_DIR}/sc_{i}.mp4"
+    cmd = [
+        "ffmpeg", "-y", 
+        "-stream_loop", "-1",
+        "-i", clip, 
+        "-t", str(dpf),
+        "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1",
+        "-c:v", "libx264", "-preset", "fast", "-crf", "20",
+        "-pix_fmt", "yuv420p", "-r", "25",
+        out
+    ]
+    subprocess.run(cmd, capture_output=True)
+    scenes.append(out)
+
+cl = f"{BE_DIR}/cl.txt"
+with open(cl, "w") as f:
+    for s in scenes: f.write(f"file '{s}'\n")
+vid = f"{BE_DIR}/vid.mp4"
+subprocess.run(["ffmpeg","-y","-f","concat","-safe","0","-i",cl,"-c","copy",vid], capture_output=True)
+
+# Mix music
+music_mix = f"{BE_DIR}/music.mp3"
+subprocess.run(["ffmpeg","-y","-i",f"{WORKSPACE}/videos/audio/background_music.mp3",
+               "-t", str(duration), "-af", f"afade=t=in:st=0:d=2,afade=t=out:st={duration-3:.1f}:d=3,volume=0.15",
+               music_mix], capture_output=True)
+audio_mix = f"{BE_DIR}/amix.mp3"
+subprocess.run(["ffmpeg","-y","-i",audio_path,"-i",music_mix,
+               "-filter_complex","[0:a]volume=1.0[v];[1:a]volume=1.0[bg];[v][bg]amix=inputs=2:duration=first:dropout_transition=2[out]",
+               "-map","[out]", audio_mix], capture_output=True)
+
+# Final with captions
+cmd = ["ffmpeg","-y","-i",vid,"-i",audio_mix,
+       "-vf", f"subtitles={srt_path}:force_style='FontName=Impact,FontSize=24,Bold=1,PrimaryColour=&H0000FFFF,OutlineColour=&H00000000,Outline=3,Shadow=2,Alignment=2,MarginV=80'",
+       "-map","0:v","-map","1:a","-c:v","libx264","-preset","fast","-crf","20",
+       "-c:a","copy","-shortest", f"{BE_DIR}/final.mp4"]
+res = subprocess.run(cmd, capture_output=True, text=True)
+if res.returncode != 0:
+    # fallback without captions
+    subprocess.run(["ffmpeg","-y","-i",vid,"-i",audio_mix,
+                   "-map","0:v","-map","1:a","-c:v","libx264","-preset","fast",
+                   "-crf","20","-c:a","copy","-shortest", f"{BE_DIR}/final.mp4"], capture_output=True)
+
+size = os.path.getsize(f"{BE_DIR}/final.mp4")/1024/1024
+log(f"✅ Video rendered: {BE_DIR}/final.mp4 ({size:.1f}MB)")
+
+# ─── STEP 6: UPLOAD TO YOUTUBE ────────────────────────────────────────────────
+log("📤 Uploading to YouTube...")
+from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaFileUpload
+
+with open(f"{WORKSPACE}/youtube_token.json") as f:
+    tok = json.load(f)
+
+creds = Credentials(token=tok["token"], refresh_token=tok["refresh_token"],
+    token_uri=tok["token_uri"], client_id=tok["client_id"],
+    client_secret=tok["client_secret"], scopes=tok["scopes"])
+
+if creds.expired:
+    creds.refresh(Request())
+    tok["token"] = creds.token
+    with open(f"{WORKSPACE}/youtube_token.json","w") as f: json.dump(tok,f)
+
+yt = build("youtube","v3",credentials=creds)
+body = {
+    "snippet": {
+        "title": data["hook"],
+        "description": f"BUY SIGNAL ALERT for {ticker} 🔥 Subscribe for more Sniper Bot alerts!",
+        "tags": ["Finance", "Stocks", "Investing", "Shorts"],
+        "categoryId": "22",
+        "defaultLanguage": "en"
+    },
+    "status": {
+        "privacyStatus": "public",
+        "selfDeclaredMadeForKids": False,
+        "containsSyntheticMedia": True
+    }
+}
+
+media = MediaFileUpload(f"{BE_DIR}/final.mp4", mimetype="video/mp4", resumable=True, chunksize=1024*1024)
+req = yt.videos().insert(part="snippet,status", body=body, media_body=media)
+response = None
+while response is None:
+    status, response = req.next_chunk()
+
+video_id = response["id"]
+video_url = f"https://www.youtube.com/shorts/{video_id}"
+log(f"✅ UPLOADED: {video_url}")
+
+# ─── STEP 7: NOTIFY BOSS ─────────────────────────────────────────────────────
+log("📱 Notifying BOSS...")
+msg = (f"🎬 *The Broke Economist — Live Trade Alert* ✅\n\n"
+       f"*{data['hook']}*\n\n"
+       f"🪝 Hook: _{data['hook']}_\n\n"
+       f"📺 {video_url}\n\n"
+       f"_Rendered & uploaded automatically by Ravi ☀️_")
+
+# Save notification for main session to pick up
+with open(f"{WORKSPACE}/pending_notification.json", "w") as f:
+    json.dump({"message": msg, "video_url": video_url, "title": data["hook"]}, f)
+
+# ─── STEP 8: PIN ENGAGEMENT COMMENT ─────────────────────────────────────────
+log("💬 Posting pinned comment...")
+try:
+    import random
+    hooks = [
+        f"This one genuinely unsettles me. If you made it this far, hit SUBSCRIBE for daily mysteries. What do you think really happened? 👇",
+        f"The more you research this, the stranger it gets. SUBSCRIBE to uncover more lost history. Drop your theory below 👇",
+        f"Historians still can't agree on this. What's your take? 👇",
+        f"This kept me up at night. Anyone else feel that? 👇",
+        f"The official explanation never satisfied me. What do YOU think? 👇"
+    ]
+    comment_body = {
+        "snippet": {
+            "videoId": video_id,
+            "topLevelComment": {
+                "snippet": {"textOriginal": random.choice(hooks)}
+            }
+        }
+    }
+    comment = yt.commentThreads().insert(part="snippet", body=comment_body).execute()
+    comment_id = comment["id"]
+    # Pin the comment
+    yt.comments().setModerationStatus(id=comment_id.split(".")[1] if "." in comment_id else comment_id,
+                                       moderationStatus="published").execute()
+    log("✅ Comment posted")
+except Exception as e:
+    log(f"⚠️ Comment failed (non-critical): {e}")
+
+log("✅ ALL DONE!")
+print(f"\nVIDEO_URL={video_url}")
+
+# ─── STEP 9

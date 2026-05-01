@@ -17,17 +17,26 @@ try:
         with open('/root/.openclaw/workspace/youtube_token.json','w') as f: json.dump(t,f)
 
     yt = build('youtube','v3',credentials=creds)
-    ch = yt.channels().list(part='statistics,snippet', mine=True).execute()
+    ch = yt.channels().list(part='statistics,contentDetails', mine=True).execute()
     stats = ch['items'][0]['statistics']
+    uploads_playlist_id = ch['items'][0]['contentDetails']['relatedPlaylists']['uploads']
 
-    search_res = yt.search().list(part='snippet', forMine=True, type='video', maxResults=5).execute()
+    playlist_res = yt.playlistItems().list(part='snippet', playlistId=uploads_playlist_id, maxResults=5).execute()
     video_list = []
-    for v in search_res.get('items', []):
-        vid_id = v['id']['videoId']
-        vs = yt.videos().list(part='statistics', id=vid_id).execute()
-        vstats = vs['items'][0]['statistics'] if vs['items'] else {}
+    
+    # We can batch get video statistics, which saves more quota (1 call instead of 5)
+    video_ids = [item['snippet']['resourceId']['videoId'] for item in playlist_res.get('items', [])]
+    if video_ids:
+        vs = yt.videos().list(part='statistics', id=','.join(video_ids)).execute()
+        vstats_map = {item['id']: item['statistics'] for item in vs.get('items', [])}
+    else:
+        vstats_map = {}
+
+    for item in playlist_res.get('items', []):
+        vid_id = item['snippet']['resourceId']['videoId']
+        vstats = vstats_map.get(vid_id, {})
         video_list.append({
-            'title': v['snippet']['title'][:45],
+            'title': item['snippet']['title'][:45],
             'views': vstats.get('viewCount','0'),
             'likes': vstats.get('likeCount','0'),
             'comments': vstats.get('commentCount','0')

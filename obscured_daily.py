@@ -43,8 +43,8 @@ def gemini(prompt):
 
 import random
 import json
-eras = ["Victorian Era", "Ancient Rome", "Middle Ages", "1920s Prohibition", "Wild West", "Tudor England", "Feudal Japan", "World War I", "1950s America", "Age of Discovery", "Ancient Egypt", "1800s Industrial Revolution"]
-themes = ["Bizarre Medical Anomaly", "Unsolved Mass Panic", "Eerie Cult Rituals", "Unexplained Cryptid Encounter", "Cursed Objects/Locations", "Royal Secret/Cover-up", "Unexplained Celestial Event", "Terrifying Ancient Weaponry", "Bizarre Historical Battles"]
+eras = ["1960s Cold War", "1970s Intelligence Agencies", "1980s Military Cover-ups", "1950s Atomic Era", "1990s Declassified Files"]
+themes = ["Declassified Government Cover-up", "Black Project Gone Wrong", "Whistleblower Assassination", "Hidden Historical Atrocity", "Covert Psychological Experiment"]
 
 random_era = random.choice(eras)
 random_theme = random.choice(themes)
@@ -72,7 +72,7 @@ Do NOT use a ship or a village vanishing. Create a brand new specific, historica
 
 CRITICAL NEGATIVE CONSTRAINT - YOU MUST NOT REPEAT ANY THEME OR SETTING FROM THESE RECENT VIDEOS:
 - {banned_recent}
-NO SOVIET LABS. NO BUNKERS. NO RADIATION. NO VANISHINGS. NO MISSING CREWS. NO WARM FOOD. NO LOCKED ROOMS.
+NO PARANORMAL VANISHINGS. FOCUS ON DECLASSIFIED SECRETS, COVER-UPS, AND BLACK PROJECTS. MAKE IT REAL AND TERRIFYING.
 """ + """
 
 TOPIC SELECTION RULES (follow strictly):
@@ -110,7 +110,7 @@ SCRIPT WRITING RULES:
 - Make the viewer feel the isolation and dread. Use sensory words.
 - Speak directly to the viewer — "you", "imagine", "picture this".
 - No markdown, no asterisks, no stage directions. Pure spoken words only.
-- Length: 45-52 seconds when spoken at a medium pace.
+- Length: ABSOLUTE MAXIMUM 100 WORDS. STRICT LIMIT. If you exceed 100 words, the video will fail to render.
 
 Output strictly as JSON:
 {
