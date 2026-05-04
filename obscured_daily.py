@@ -43,8 +43,8 @@ def gemini(prompt):
 
 import random
 import json
-eras = ["1960s Cold War", "1970s Intelligence Agencies", "1980s Military Cover-ups", "1950s Atomic Era", "1990s Declassified Files"]
-themes = ["Declassified Government Cover-up", "Black Project Gone Wrong", "Whistleblower Assassination", "Hidden Historical Atrocity", "Covert Psychological Experiment"]
+eras = ["Ancient Egypt", "Victorian London", "Medieval Europe", "Roman Empire", "Feudal Japan", "Wild West", "Renaissance Italy", "World War I"]
+themes = ["Ancient Curse", "Unexplained Artifact", "Mass Hysteria", "Royal Secret", "Unsolved Gothic Murder", "Lost Civilization", "Bizarre Medical Anomaly", "Unexplained Mass Vanishing"]
 
 random_era = random.choice(eras)
 random_theme = random.choice(themes)
@@ -72,13 +72,13 @@ Do NOT use a ship or a village vanishing. Create a brand new specific, historica
 
 CRITICAL NEGATIVE CONSTRAINT - YOU MUST NOT REPEAT ANY THEME OR SETTING FROM THESE RECENT VIDEOS:
 - {banned_recent}
-NO PARANORMAL VANISHINGS. FOCUS ON DECLASSIFIED SECRETS, COVER-UPS, AND BLACK PROJECTS. MAKE IT REAL AND TERRIFYING.
+NO MODERN GEOPOLITICS. ABSOLUTELY NO 20TH CENTURY COLD WAR, CIA, OR RADIATION THEMES. FOCUS ON HIGH-VISCERAL, GOTHIC, PRE-1900S HISTORICAL MYSTERIES.
 """ + """
 
 TOPIC SELECTION RULES (follow strictly):
 1. ✅ MUST be a highly terrifying, obscure historical mystery. Focus on curses, bizarre ancient battles, cryptids, terrifying inventions, unexplained artifacts, or mass psychological events.
-2. 🚫 BANNED TROPES & WORDS: NO VANISHING. NO DISAPPEARING. NO LOCKED ROOMS. NO WARM FOOD. NO EMPTY LABS OR BUNKERS. NO CREWS GONE MISSING. NEVER use the words "vanished", "disappeared", "warm food", "locked from the inside", "eyes wide", or "abandoned".
-3. 🚫 BANNED TOPICS: Ghost ships, Flannan Isles, Mary Celeste, Dyatlov Pass, Titanic, Bermuda Triangle, Soviet Labs.
+2. 🚫 BANNED TROPES: No modern/20th-century events (No CIA, Cold War, Soviet labs, or radiation bunkers). NO modern geopolitical cover-ups.
+3. 🚫 BANNED SPECIFIC TOPICS: Ghost ships, Flannan Isles, Mary Celeste, Dyatlov Pass, Titanic, Bermuda Triangle.
 4. ✅ Focus on visceral, chilling details (e.g., "The artifact was still pulsing," "The entire army stopped marching at exactly the same second," "The journal entries were written in a language that wouldn't exist for 300 years").
 5. ✅ The mystery must induce a feeling of dread and psychological tension.
 6. ✅ The event must have a SHOCKING unanswered element — something that defies explanation even today
@@ -179,62 +179,53 @@ if duration > 59.0:
     log(f"✅ Voiceover sped up to 58.5s")
 
 
-# ─── STEP 3: VIDEOS VIA KIE.AI ───────────────────────────────────────────────────────────
-log("🎬 Generating videos via Kie.ai (Bytedance)...")
+# ─── STEP 3: IMAGES ───────────────────────────────────────────────────────────
+log("🖼️ Generating images via Imagen 4...")
+images = []
 import time
-headers_kie = {"Authorization": f"Bearer {KIE_API_KEY}", "Content-Type": "application/json"}
-tasks = []
 for i, prompt in enumerate(data.get("video_prompts", data.get("image_prompts", []))):
-    payload = {
-        "model": "bytedance/seedance-2-fast",
-        "input": {
-            "prompt": prompt,
-            "generate_audio": False,
-            "resolution": "720p",
-            "aspect_ratio": "9:16",
-            "duration": 5,
-            "nsfw_checker": False
-        }
-    }
-    r = requests.post("https://api.kie.ai/api/v1/jobs/createTask", json=payload, headers=headers_kie).json()
-    if 'data' in r and 'taskId' in r['data']:
-        tasks.append((i+1, r['data']['taskId']))
-        log(f"  Started Scene {i+1} task: {r['data']['taskId']}")
+    img_path = f"{WORKSPACE}/videos/images/scene_{date_str}_{i+1}.jpg"
+    
+    def fetch_img(p):
+        for attempt in range(5):
+            r = requests.post(
+                f"https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key={GEMINI_KEY}",
+                json={"instances": [{"prompt": p}], "parameters": {"sampleCount": 1, "aspectRatio": "9:16"}},
+                headers={"Content-Type": "application/json"}
+            )
+            if r.status_code == 429:
+                log(f"  ⚠️ API Limit reached (429). Waiting 60 seconds...")
+                time.sleep(60)
+                continue
+            return r
+        return requests.models.Response() # dummy
+        
+    r = fetch_img(prompt)
+    try:
+        resp = r.json()
+    except:
+        resp = {}
+        
+    if r.status_code == 200 and "predictions" in resp:
+        with open(img_path, "wb") as f:
+            f.write(base64.b64decode(resp["predictions"][0]["bytesBase64Encoded"]))
+        images.append(img_path)
+        log(f"  ✅ Scene {i+1}")
     else:
-        log(f"  ❌ Scene {i+1} failed to start: {r}")
-
-log("Polling video tasks...")
-videos = []
-for idx, t in tasks:
-    done = False
-    for _ in range(60): # 10 mins
+        log(f"  ⚠️ Scene {i+1} failed (status {r.status_code}). Retrying with generic fallback prompt...")
+        fallback = "Cinematic dark history background, atmospheric, moody, blank slate, highly detailed, 9:16 vertical"
+        r = fetch_img(fallback)
         try:
-            r = requests.get(f"https://api.kie.ai/api/v1/jobs/recordInfo?taskId={t}", headers=headers_kie).json()
-            state = r.get('data', {}).get('state')
-            if state == 'success':
-                res_json = json.loads(r['data']['resultJson'])
-                v_url = res_json['resultUrls'][0]
-                
-                # Download it
-                clip_path = f"{WORKSPACE}/videos/images/scene_{date_str}_{idx}.mp4"
-                v_data = requests.get(v_url).content
-                with open(clip_path, "wb") as f:
-                    f.write(v_data)
-                videos.append(clip_path)
-                log(f"  ✅ Scene {idx} downloaded")
-                done = True
-                break
-            elif state == 'fail' or state == 'failed':
-                log(f"  ❌ Scene {idx} failed: {r}")
-                done = True
-                break
-        except Exception as e:
-            pass
-        time.sleep(10)
-
-if not videos:
-    log("❌ No videos generated")
-    sys.exit(1)
+            resp = r.json()
+        except:
+            resp = {}
+        if r.status_code == 200 and "predictions" in resp:
+            with open(img_path, "wb") as f:
+                f.write(base64.b64decode(resp["predictions"][0]["bytesBase64Encoded"]))
+            images.append(img_path)
+            log(f"  ✅ Scene {i+1} (Fallback)")
+        else:
+            log(f"  ❌ Fallback also failed.")
 
 # ─── STEP 4: CAPTIONS (Whisper) ───────────────────────────────────────────────
 log("📝 Generating captions...")
@@ -261,23 +252,28 @@ log(f"✅ {idx-1} caption chunks")
 
 # ─── STEP 5: RENDER ───────────────────────────────────────────────────────────
 log("🎬 Rendering video...")
-n = len(videos)
-dpf = duration / n
+n = len(images)
+dpf = duration / n if n > 0 else 5
 scenes = []
-for i, clip in enumerate(videos):
+for i, img in enumerate(images):
     out = f"/tmp/sc_{date_str}_{i}.mp4"
-    cmd = [
-        "ffmpeg", "-y", 
-        "-stream_loop", "-1",
-        "-i", clip, 
-        "-t", str(dpf),
-        "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1",
-        "-c:v", "libx264", "-preset", "fast", "-crf", "20",
-        "-pix_fmt", "yuv420p", "-r", "25",
-        out
-    ]
-    subprocess.run(cmd, capture_output=True)
-    scenes.append(out)
+    frames = int(dpf * 25) + 10
+    cmd = ["ffmpeg", "-y", "-loop", "1", "-t", str(dpf+1), "-i", img,
+           "-vf", f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
+                  f"zoompan=z='min(zoom+0.0008,1.25)':d={frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920:fps=25,"
+                  f"setsar=1,fade=t=in:st=0:d=0.4,fade=t=out:st={dpf-0.4:.2f}:d=0.4",
+           "-t", str(dpf), "-c:v", "libx264", "-preset", "fast", "-crf", "20",
+           "-pix_fmt", "yuv420p", "-r", "25", out]
+    r2 = subprocess.run(cmd, capture_output=True)
+    if r2.returncode == 0:
+        scenes.append(out)
+    else:
+        # fallback
+        cmd2 = ["ffmpeg", "-y", "-loop", "1", "-t", str(dpf), "-i", img,
+                "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1",
+                "-c:v", "libx264", "-preset", "fast", "-crf", "20", "-pix_fmt", "yuv420p", "-r", "25", out]
+        subprocess.run(cmd2, capture_output=True)
+        scenes.append(out)
 
 cl = f"/tmp/cl_{date_str}.txt"
 with open(cl, "w") as f:
