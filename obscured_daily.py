@@ -72,7 +72,7 @@ Do NOT use a ship or a village vanishing. Create a brand new specific, historica
 
 CRITICAL NEGATIVE CONSTRAINT - YOU MUST NOT REPEAT ANY THEME OR SETTING FROM THESE RECENT VIDEOS:
 - {banned_recent}
-NO MODERN GEOPOLITICS. ABSOLUTELY NO 20TH CENTURY COLD WAR, CIA, OR RADIATION THEMES. FOCUS ON HIGH-VISCERAL, GOTHIC, PRE-1900S HISTORICAL MYSTERIES.
+FOCUS ON HIGH-STAKES, WIDELY RECOGNIZABLE HISTORICAL MYSTERIES WITH MASS APPEAL. Think missing famous expeditions, World War 2 anomalies, legendary lost artifacts, or massively publicized unsolved historical disappearances. Avoid hyper-niche or obscure medical anomalies.
 """ + """
 
 TOPIC SELECTION RULES (follow strictly):

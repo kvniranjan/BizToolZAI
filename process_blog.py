@@ -1,48 +1,59 @@
-import sys, os, re, csv, subprocess
-from datetime import datetime
+import os
+import re
+import csv
+import datetime
 
-# 1. Read the draft
-draft_path = "content/Synthesia_2026-05-02.md"
-with open(draft_path, "r") as f:
+# 1. Read CSV and find today's entry
+with open('content_approval.csv', 'r') as f:
+    rows = list(csv.reader(f))
+
+last_row = rows[-1]
+date, tool, filename, status = last_row
+
+if status in ["Reject", "Stop"]:
+    print(f"Status is {status}. Exiting.")
+    exit(0)
+
+# 2. Read markdown
+with open(filename, 'r') as f:
     md_content = f.read()
 
-# Parse MD
-title_match = re.search(r'^Title:\s*(.+)$', md_content, re.MULTILINE)
-title = title_match.group(1).strip() if title_match else "Synthesia AI Video Generator Review 2026"
+# 3. Extract title and meta description
+title_match = re.search(r'# (.*)', md_content)
+title = title_match.group(1) if title_match else f"{tool} Review"
 
-meta_match = re.search(r'^Meta:\s*(.+)$', md_content, re.MULTILINE)
-meta = meta_match.group(1).strip() if meta_match else ""
+meta_match = re.search(r'\*\*Meta Description:\*\* (.*)', md_content)
+meta = meta_match.group(1) if meta_match else f"Review of {tool}"
 
-body_match = re.search(r'## Review Body(.*)', md_content, re.DOTALL)
-body_md = body_match.group(1).strip() if body_match else md_content
+# Remove title and meta from md_content for the body
+body_md = re.sub(r'# .*\n', '', md_content, 1)
+body_md = re.sub(r'\*\*Meta Description:\*\* .*\n', '', body_md, 1)
 
-# Convert body MD to HTML
-html_body = ""
-lines = body_md.split('\n')
-in_list = False
-for line in lines:
-    line = line.strip()
-    if not line:
-        continue
-    if line.startswith('### '):
-        if in_list: html_body += "</ul>\n"; in_list = False
-        html_body += f'<h3 class="text-2xl font-bold mt-8 mb-4">{line[4:]}</h3>\n'
-    elif line.startswith('- '):
-        if not in_list: html_body += '<ul class="list-disc pl-6 mb-4">\n'; in_list = True
-        html_body += f'<li class="mb-2">{line[2:]}</li>\n'
+# Super simple MD to HTML for the specific format
+html_body = body_md
+html_body = re.sub(r'## (.*)', r'<h2 class="text-2xl font-bold mt-8 mb-4">\1</h2>', html_body)
+html_body = re.sub(r'### (.*)', r'<h3 class="text-xl font-bold mt-6 mb-3">\1</h3>', html_body)
+html_body = re.sub(r'- \*\*(.*?)\*\*(.*)', r'<li class="mb-2"><strong>\1</strong>\2</li>', html_body)
+html_body = re.sub(r'(?m)^- (.*)', r'<li class="mb-2">\1</li>', html_body)
+html_body = re.sub(r'(?s)(<li.*</li>)', r'<ul class="list-disc pl-6 mb-4">\n\1\n</ul>', html_body)
+html_body = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', html_body)
+html_body = html_body.replace('---', '<hr class="my-8 border-gray-200">')
+
+paragraphs = html_body.split('\n\n')
+final_html_body = []
+for p in paragraphs:
+    p = p.strip()
+    if not p or p.startswith('<h') or p.startswith('<ul') or p.startswith('<hr'):
+        final_html_body.append(p)
     else:
-        if in_list: html_body += "</ul>\n"; in_list = False
-        html_body += f'<p class="mb-4">{line}</p>\n'
-if in_list: html_body += "</ul>\n"
+        final_html_body.append(f'<p class="mb-4">{p}</p>')
+html_body = '\n'.join(final_html_body)
 
-# Highlight bold text
-html_body = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html_body)
+slug = f"{tool.lower().replace(' ', '-')}-2026-05-06"
+html_filename = f"blog/{slug}.html"
 
-slug = "synthesia-2026-05-02"
-html_file = f"blog/{slug}.html"
-
-# Tailwind template
-html_page = f"""<!DOCTYPE html>
+# 4. Generate HTML
+html_template = f"""<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -61,10 +72,10 @@ html_page = f"""<!DOCTYPE html>
         
         <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-gray-200">
             <div class="flex items-center gap-4 mb-8">
-                <img src="https://logo.clearbit.com/synthesia.io?size=128" class="w-16 h-16 rounded-xl border border-gray-100 shadow-sm" alt="Synthesia Logo">
+                <img src="https://logo.clearbit.com/{tool.lower().replace(' ', '')}.ai?size=128" onerror="this.src='https://logo.clearbit.com/{tool.lower().replace(' ', '')}.com?size=128'" class="w-16 h-16 rounded-xl border border-gray-100 shadow-sm" alt="{tool} Logo">
                 <div>
                     <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">{title}</h1>
-                    <p class="text-gray-500 mt-2 text-sm font-medium">Published on May 2, 2026</p>
+                    <p class="text-gray-500 mt-2 text-sm font-medium">Published on May 6, 2026</p>
                 </div>
             </div>
             
@@ -76,66 +87,57 @@ html_page = f"""<!DOCTYPE html>
 </body>
 </html>"""
 
-with open(html_file, "w") as f:
-    f.write(html_page)
+with open(html_filename, 'w') as f:
+    f.write(html_template)
 
-# Update blog/index.html
-with open("blog/index.html", "r") as f:
-    blog_idx = f.read()
+# 5. Update blog/index.html
+with open('blog/index.html', 'r') as f:
+    index_html = f.read()
 
 card_html = f"""
-            <a href="{slug}.html" class="bg-card border border-border p-6 rounded-2xl shadow-subtle hover:shadow-hover transition-all group flex flex-col h-full">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-xs font-bold text-primary uppercase tracking-wider">Video Creators</span>
-                    <img src="https://logo.clearbit.com/synthesia.io?size=64" onerror="this.style.display='none'" class="w-8 h-8 rounded-md shadow-sm border border-border object-cover" alt="Synthesia Logo">
+            <a href="/{html_filename}" class="group block bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-blue-500 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4 mb-4">
+                    <img src="https://logo.clearbit.com/{tool.lower().replace(' ', '')}.ai?size=64" onerror="this.src='https://logo.clearbit.com/{tool.lower().replace(' ', '')}.com?size=64'" class="w-12 h-12 rounded-lg border border-gray-100" alt="{tool} Logo">
+                    <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600">{title}</h3>
                 </div>
-                <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{title}</h3>
-                <p class="text-muted-foreground text-sm mb-6 flex-grow">{meta}</p>
-                <div class="flex justify-between items-center text-sm font-semibold text-secondary pt-4 border-t border-border">
-                    <span>📖 4 min read</span>
-                    <span>🚀 New</span>
-                </div>
+                <p class="text-gray-600 text-sm">{meta}</p>
             </a>
-"""
+            <!-- NEW_BLOG_CARD -->"""
 
-if '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="toolsGrid">' in blog_idx:
-    blog_idx = blog_idx.replace('<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="toolsGrid">', '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="toolsGrid">\n' + card_html)
-    with open("blog/index.html", "w") as f:
-        f.write(blog_idx)
+index_html = index_html.replace('<!-- NEW_BLOG_CARD -->', card_html)
 
-# Hub & Spoke: Update /use-cases/ai-for-video-creators.html
-hub_path = "use-cases/ai-for-video-creators.html"
-with open(hub_path, "r") as f:
-    hub_idx = f.read()
+with open('blog/index.html', 'w') as f:
+    f.write(index_html)
 
-hub_card_html = f"""
-            <a href="/blog/{slug}.html" class="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Video Generation</span>
-                    <img src="https://logo.clearbit.com/synthesia.io?size=64" class="w-10 h-10 rounded-md border border-gray-100" alt="Synthesia Logo">
+# 6. Update Use Cases Hub (ai-for-content-creators.html)
+use_case_file = 'use-cases/ai-for-content-creators.html'
+with open(use_case_file, 'r') as f:
+    use_case_html = f.read()
+
+uc_card_html = f"""
+            <a href="/{html_filename}" class="block bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-300 transition-all">
+                <div class="flex items-center gap-3 mb-3">
+                    <img src="https://logo.clearbit.com/{tool.lower().replace(' ', '')}.ai?size=64" onerror="this.src='https://logo.clearbit.com/{tool.lower().replace(' ', '')}.com?size=64'" class="w-10 h-10 rounded-lg" alt="{tool} Logo">
+                    <h3 class="text-lg font-bold text-gray-900">{tool}</h3>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">{title}</h3>
-                <p class="text-gray-600 text-sm mb-6 flex-grow">{meta}</p>
+                <p class="text-sm text-gray-600 mb-4">{meta}</p>
+                <span class="text-blue-600 font-semibold text-sm">Read Review &rarr;</span>
             </a>
-"""
+            <!-- NEW_USE_CASE_CARD -->"""
 
-if '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">' in hub_idx:
-    hub_idx = hub_idx.replace('<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">', '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">\n' + hub_card_html)
-    with open(hub_path, "w") as f:
-        f.write(hub_idx)
+if '<!-- NEW_USE_CASE_CARD -->' in use_case_html:
+    use_case_html = use_case_html.replace('<!-- NEW_USE_CASE_CARD -->', uc_card_html)
+else:
+    # Just append before the last closing div/main if possible, or append at the end
+    print("Warning: <!-- NEW_USE_CASE_CARD --> not found in use cases hub.")
 
-# Update CSV
-csv_file = 'content_approval.csv'
-rows = []
-with open(csv_file, 'r') as f:
-    reader = csv.reader(f)
-    for row in reader:
-        if len(row) >= 4 and 'Synthesia' in row[1]:
-            row[3] = 'Published'
-        rows.append(row)
+with open(use_case_file, 'w') as f:
+    f.write(use_case_html)
 
-with open(csv_file, 'w', newline='') as f:
+# 7. Update CSV
+rows[-1][3] = "Published"
+with open('content_approval.csv', 'w', newline='') as f:
     writer = csv.writer(f)
     writer.writerows(rows)
 
-print("Done processing")
+print(f"Successfully processed {tool}.")

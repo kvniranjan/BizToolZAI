@@ -1,17 +1,5 @@
-Tool,Description,Affiliate/Partner Program
-Montage,Deterministic agent UI,Not found
-In Parallel,Turn meetings into action,Not found
-Klu,Unifies scattered company knowledge / LLM Apps,Partner program mentioned
-2026-05-02,Synthesia,Yes
-Date,Tool,Has Affiliate Program,Notes\n2026-05-03,Quanto,No,-\n2026-05-03,T-Rex Label,No,-\n2026-05-03,Postiz,Yes,https://affiliate.postiz.com
-2026-05-03,CustomGPT.ai,Yes
-Date,Tool,Description,Affiliate_Program,Program_URL
-"2026-05-04","Phygital+","Multi-model creative production AI","Yes","https://phygital.plus/referral"
-"2026-05-04","Crossnode","Vibe code AI agents","No",""
-"2026-05-04","T-Rex Label","Computer-vision dataset creation AI","No",""
-2026-05-04,Munch,Yes
-Date,Tool,Category,Affiliate_Program_Found
-2026-05-05,Montage,LLMs / UI,No
-2026-05-05,Palma,AI Governance,No
-2026-05-05,CrossnodeVibe,AI Automation / Monetization,No
-2026-05-05,Pictory AI,Yes,content/pictory_ai_2026-05-05.md
+Date,Tool Name,Description,Affiliate/Partner Program Status
+2026-05-06,Vapi,Voice AI platform for automating phone calls at scale.,Has an affiliate program (affiliates.vapi.ai).
+2026-05-06,Glide,AI-powered tool that turns spreadsheets into apps.,Offers an Experts/Partner program for developers.
+2026-05-06,Devin,Autonomous AI software engineer by Cognition Labs.,Has enterprise partnerships (Microsoft, Cognizant) but no public affiliate program.
+2026-05-06,Murf AI,Yes (20% Recurring)
