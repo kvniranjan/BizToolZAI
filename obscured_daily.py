@@ -43,8 +43,8 @@ def gemini(prompt):
 
 import random
 import json
-eras = ["Ancient Egypt", "Victorian London", "Medieval Europe", "Roman Empire", "Feudal Japan", "Wild West", "Renaissance Italy", "World War I"]
-themes = ["Ancient Curse", "Unexplained Artifact", "Mass Hysteria", "Royal Secret", "Unsolved Gothic Murder", "Lost Civilization", "Bizarre Medical Anomaly", "Unexplained Mass Vanishing"]
+eras = ["World War II", "Cold War", "The Golden Age of Piracy", "1950s America", "The Space Race", "The Titanic Era", "World War I", "19th Century Expeditions"]
+themes = ["Unexplained Mass Vanishing of Military", "Top Secret Cover-up", "Alien/UFO Encounter", "Lost Famous Expedition", "Deep Ocean Anomaly", "Bizarre Weapons Experiment", "Spies and Assassins", "Unexplained Cryptid Encounter"]
 
 random_era = random.choice(eras)
 random_theme = random.choice(themes)
@@ -110,7 +110,7 @@ SCRIPT WRITING RULES:
 - Make the viewer feel the isolation and dread. Use sensory words.
 - Speak directly to the viewer — "you", "imagine", "picture this".
 - No markdown, no asterisks, no stage directions. Pure spoken words only.
-- Length: ABSOLUTE MAXIMUM 100 WORDS. STRICT LIMIT. If you exceed 100 words, the video will fail to render.
+- Length: STRICTLY 130 to 150 WORDS. This is required to hit the 50-58 second voiceover sweet spot. If you write less than 130 words, the retention will fail.
 
 Output strictly as JSON:
 {
@@ -139,6 +139,10 @@ except:
 
 if not data:
     log("❌ Failed to parse script JSON")
+    sys.exit(1)
+
+if len(data.get("voiceover", "").split()) < 110:
+    log(f"❌ Critical Failure: Voiceover too short ({len(data.get('voiceover', '').split())} words). Aborting pipeline to protect retention.")
     sys.exit(1)
 
 log(f"✅ Topic: {data['title']}")
@@ -226,6 +230,10 @@ for i, prompt in enumerate(data.get("video_prompts", data.get("image_prompts", [
             log(f"  ✅ Scene {i+1} (Fallback)")
         else:
             log(f"  ❌ Fallback also failed.")
+
+if len(images) < 4:
+    log("❌ Critical Failure: Missing images. Aborting pipeline to prevent algorithm penalty.")
+    sys.exit(1)
 
 # ─── STEP 4: CAPTIONS (Whisper) ───────────────────────────────────────────────
 log("📝 Generating captions...")
