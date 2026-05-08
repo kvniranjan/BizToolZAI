@@ -43,8 +43,8 @@ def gemini(prompt):
 
 import random
 import json
-eras = ["World War II", "Cold War", "The Golden Age of Piracy", "1950s America", "The Space Race", "The Titanic Era", "World War I", "19th Century Expeditions"]
-themes = ["Unexplained Mass Vanishing of Military", "Top Secret Cover-up", "Alien/UFO Encounter", "Lost Famous Expedition", "Deep Ocean Anomaly", "Bizarre Weapons Experiment", "Spies and Assassins", "Unexplained Cryptid Encounter"]
+eras = ["World War II", "Cold War", "1950s America", "The Space Race", "Soviet Union", "1970s Black Projects", "1980s CIA", "Deep Underground Bases", "Maritime / Golden Age of Sail"]
+themes = ["Ghost Ship / Maritime Disappearance", "Top Secret Government Cover-up", "Cosmonaut/Astronaut Disappearance", "Classified Weapons Experiment", "Deep Ocean/Trench Anomaly", "Unexplained Radiation Event", "Underground Base Lockdown", "Single-person vivid disappearance"]
 
 random_era = random.choice(eras)
 random_theme = random.choice(themes)
@@ -60,72 +60,53 @@ banned_recent = "\n- ".join(recent_titles)
 
 log("🔍 Researching viral dark history topic...")
 
-research_prompt = f"""You are an expert viral YouTube Shorts scriptwriter for "Obscured History" — a dark history and unsolved mystery channel optimised for maximum watch-through rate.
+research_prompt = f"""You are an expert viral YouTube Shorts scriptwriter for "Obscured History" — a dark history and unsolved mystery channel.
 
-YOUR MOST IMPORTANT GOAL: Write a script where viewers physically cannot stop watching before it ends.
+YOUR MOST IMPORTANT GOAL: Write a script that hooks immediately, features visceral details, and drives high watch-through rates and comments.
 
 THIS SPECIFIC VIDEO MUST BE ABOUT:
 - ERA/SETTING: {random_era}
 - THEME/NATURE OF MYSTERY: {random_theme}
 
-Do NOT use a ship or a village vanishing. Create a brand new specific, historically grounded event in this era and theme.
-
-CRITICAL NEGATIVE CONSTRAINT - YOU MUST NOT REPEAT ANY THEME OR SETTING FROM THESE RECENT VIDEOS:
+CRITICAL NEGATIVE CONSTRAINTS:
+1. Do NOT make videos about Sicknesses, Diseases, Plagues, Glowing/Sickness themes, or Japan/Asian-folklore content. These are strictly banned.
+2. YOU MUST NOT REPEAT ANY THEME OR SETTING FROM THESE RECENT VIDEOS:
 - {banned_recent}
-FOCUS ON HIGH-STAKES, WIDELY RECOGNIZABLE HISTORICAL MYSTERIES WITH MASS APPEAL. Think missing famous expeditions, World War 2 anomalies, legendary lost artifacts, or massively publicized unsolved historical disappearances. Avoid hyper-niche or obscure medical anomalies.
-""" + """
 
-TOPIC SELECTION RULES (follow strictly):
-1. ✅ MUST be a highly terrifying, obscure historical mystery. Focus on curses, bizarre ancient battles, cryptids, terrifying inventions, unexplained artifacts, or mass psychological events.
-2. 🚫 BANNED TROPES: No modern/20th-century events (No CIA, Cold War, Soviet labs, or radiation bunkers). NO modern geopolitical cover-ups.
-3. 🚫 BANNED SPECIFIC TOPICS: Ghost ships, Flannan Isles, Mary Celeste, Dyatlov Pass, Titanic, Bermuda Triangle.
-4. ✅ Focus on visceral, chilling details (e.g., "The artifact was still pulsing," "The entire army stopped marching at exactly the same second," "The journal entries were written in a language that wouldn't exist for 300 years").
-5. ✅ The mystery must induce a feeling of dread and psychological tension.
-6. ✅ The event must have a SHOCKING unanswered element — something that defies explanation even today
-7. ✅ Prefer events with SPECIFIC vivid details (names, dates, exact locations, physical evidence)
-8. ✅ Pick something that sounds impossible — "this CAN'T be real" reaction drives shares
+TITLE FORMULA RULES (Pick ONE of these randomly and follow exactly. Do not use ALL-CAPS words):
+A: [Normal/cozy detail]. [Impossible aftermath]. (e.g., "Dinner Still Warm. Crew Gone.")
+B: [Mundane action]. Then [impossible event]. (e.g., "He walked out the door. Then he ceased to exist.")
+C: [Eerie object/setting]: [Visceral image] (e.g., "Ghost Ship: Faces Frozen in Terror")
+D: Sealed for [X years]. [Authority figure] found [unexpected thing] inside.
+E: [Government] said it never happened. [Concrete artifact] proved them wrong.
+* The word "Vanished" can ONLY be used if you randomly roll a 1 out of 4 chance. Prefer other descriptors. 
 
-HOOK RULES (the first 3 seconds determine everything):
-- Must create an OPEN LOOP instantly — viewer must need to know what happened
-- Use a specific shocking detail, not a vague tease
-- Examples of great hooks:
-  * "In 1518, an entire city started dancing until their feet bled, and no one knows why."
-  * "They found an ancient clockwork machine that accurately mapped the stars, 1,000 years before it was invented."
-  * "The general documented an army of winged beasts descending from the clouds. His diary was classified."
-- Avoid weak hooks like "In [year]..." or "Have you heard of..." — these lose viewers immediately
+HOOK RULES (First 3 seconds):
+- Start instantly with the most disturbing fact. DO NOT setup with "In [year]". Create an instant open loop.
+- End the script (last 3 seconds) with a strong CTA that demands a specific comment (e.g., "Which theory haunts you? Comment below", "If you'd open the bunker type OPEN"). Do not say "Like and subscribe."
 
-SCRIPT STRUCTURE FOR MAX RETENTION:
-1. HOOK (0-3s): Paced visually. Start with rapid 2-4 word phrases. Shocking statement that creates an instant open loop. DO NOT start with 'In [year]'.
-2. CONTEXT (3-15s): Brief, vivid scene-setting — make viewer feel they're there
-3. ESCALATION (15-35s): Stack shocking detail upon shocking detail — each one more bizarre
-4. THE UNANSWERED QUESTION (35-45s): What do we still NOT know? Lean into the mystery
-5. CALL TO ACTION (45-50s): Demand a subscribe BEFORE giving the final shocking detail. (e.g., "I'm about to tell you the scariest part, but first, hit subscribe so you don't miss tomorrow's mystery.") Then end with the final unanswered question.
+SCRIPT STRUCTURE:
+1. HOOK (0-3s): Most disturbing fact first.
+2. CONTEXT (3-15s): Vivid, sensory scene-setting. Use specific numbers/names/dates.
+3. ESCALATION (15-35s): Stack shocking, visceral facts.
+4. UNANSWERED QUESTION & CTA (35-45s): Land the unresolved mystery + Comment CTA.
 
-VIDEO PROMPT RULES:
-- Historical accuracy is PARAMOUNT. If the ship was a wooden sail schooner, the prompt MUST specify 'wooden sail schooner'. Do not use generic terms like 'massive ship' if it contradicts historical facts. Our viewers are history buffs and will penalize inaccuracies.
-
-SCRIPT WRITING RULES:
-- Every sentence must earn its place — cut anything that doesn't add tension or information.
-- Use short, punchy, terrifying sentences. Build relentless suspense.
-- Make the viewer feel the isolation and dread. Use sensory words.
-- Speak directly to the viewer — "you", "imagine", "picture this".
-- No markdown, no asterisks, no stage directions. Pure spoken words only.
-- Length: STRICTLY 130 to 150 WORDS. This is required to hit the 50-58 second voiceover sweet spot. If you write less than 130 words, the retention will fail.
+LENGTH RULE: Voiceover MUST be strictly between 120 and 140 words. No shorter, no longer.
 
 Output strictly as JSON:
-{
-  "title": "Specific shocking YouTube title under 60 chars with #Shorts — must make someone click",
+{{
+  "title": "Specific shocking YouTube title under 60 chars using a Formula above + #Shorts",
   "hook": "The exact opening sentence — under 12 words, creates instant open loop",
-  "voiceover": "Full script following the 5-part structure above. Pure spoken words. No markdown.",
+  "voiceover": "Full script following the rules above. Pure spoken words. No markdown.",
   "video_prompts": [
-    "Cinematic ultra-realistic cinematic historical tracking shot, moody lighting, 9:16 vertical — matching scene 1 of the script",
-    "Cinematic ultra-realistic cinematic historical tracking shot, moody lighting, 9:16 vertical — matching scene 2",
-    "Cinematic ultra-realistic cinematic historical tracking shot, moody lighting, 9:16 vertical — matching scene 3",
-    "Cinematic ultra-realistic cinematic historical tracking shot, moody lighting, 9:16 vertical — matching scene 4"
+    "Cinematic ultra-realistic historical tracking shot, moody lighting, 9:16 vertical — scene 1",
+    "Cinematic ultra-realistic historical tracking shot, moody lighting, 9:16 vertical — scene 2",
+    "Cinematic ultra-realistic historical tracking shot, moody lighting, 9:16 vertical — scene 3",
+    "Cinematic ultra-realistic historical tracking shot, moody lighting, 9:16 vertical — scene 4"
   ],
-  "description": "YouTube description 150 words with relevant hashtags #ObscuredHistory #Mystery #DarkHistory #Shorts",
-  "tags": ["ObscuredHistory", "UnsolvedMystery", "DarkHistory", "TrueHistory", "Shorts"]
-}"""
+  "description": "[1-sentence hook]\\n\\n[2-3 sentence factual context]\\n\\n[Open question]\\n\\n🔔 New dark history every day. Subscribe.\\n\\n#ObscuredHistory #DarkHistory #Mystery #Shorts #[Entity1] #[Entity2]",
+  "tags": ["ObscuredHistory", "Mystery", "DarkHistory", "Shorts", "SPECIFIC_ENTITY_1", "SPECIFIC_ENTITY_2"]
+}}"""
 
 raw = gemini(research_prompt)
 raw = re.sub(r'```json\n?', '', raw).replace('```', '').strip()
@@ -338,7 +319,7 @@ body = {
     "snippet": {
         "title": data["title"],
         "description": data["description"],
-        "tags": data.get("tags", []) + ["ObscuredHistory","Mystery","DarkHistory","Shorts"],
+        "tags": list(set(data.get("tags", []) + ["ObscuredHistory","Mystery","DarkHistory","Shorts"])),
         "categoryId": "22",
         "defaultLanguage": "en"
     },
