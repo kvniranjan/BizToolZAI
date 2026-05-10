@@ -1,15 +1,15 @@
-# Reddit Leads
+# Reddit Opportunity Scout - Leads
 
-## Thread 1
+## Lead 1
 **Subreddit:** r/smallbusinessowner
-**Traffic Rating:** High
+**Traffic Rating:** Medium
 **Thread Topic:** Those of you who've tried automating parts of your business, what worked and what didn't?
 **Draft Reply:**
-I totally agree that having an approval queue is critical. One area where automation has been a massive win for us without needing constant monitoring is customer support. We started using an AI tool called Answrr for handling tier-1 inquiries. Instead of patching together Zapier workflows that break, it just learns from our docs and answers common questions accurately. It freed up so much time that we can now focus on the complex, high-stakes tickets manually. If you're looking to automate support safely, I highly recommend looking into it. I wrote a breakdown of how we set it up here: [Link to our review].
+Hey! For automation, one of the biggest pitfalls is relying on overly complex Zapier setups that break easily and get expensive. We've actually reviewed a few streamlined alternatives that might help. If you're struggling with customer support automation specifically, Answrr has been fantastic for keeping things simple without the robotic feel. Also, if you need to build custom internal tools to automate specific workflows without coding, Lovable is a solid option. I put together a full breakdown of these tools and what they're best at here: [Link to Review]. Hope that helps simplify things!
 
-## Thread 2
-**Subreddit:** r/saasbuild
-**Traffic Rating:** Medium
-**Thread Topic:** What’s your current AI dev stack? (Models, IDEs, tools, workflows)
+## Lead 2
+**Subreddit:** r/smallbusiness
+**Traffic Rating:** High
+**Thread Topic:** Which AI tool are you using to generate product images for your Shopify store?
 **Draft Reply:**
-Great stack! I agree that sticking to a few core tools prevents context switching. Lately, I've been incorporating Lovable into my workflow for spinning up full-stack web apps incredibly fast. Instead of just getting snippets in Cursor, Lovable lets me generate the entire app structure and UI components through natural language, which I then refine. It's been a game changer for rapid prototyping and MVP building. We did a deep dive on how it compares to other builders here: [Link to our review]. Definitely worth checking out if you want to speed up that initial build phase.
+Finding the right balance between quality and scale for product images is tough. While there are a lot of scattered tools out there, if you are looking to repurpose media or automate your visual asset generation across the board, you might want to check out Munch. It's excellent for taking existing content and optimizing it for your store and social channels. We've done a deep dive into some of the top AI content and automation tools (including Munch) and how they fit into a small business workflow. You can check out the full review here: [Link to Review]. Let me know if you have questions on the setup!
