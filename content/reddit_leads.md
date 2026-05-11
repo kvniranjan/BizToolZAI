@@ -1,15 +1,15 @@
-# Reddit Opportunity Scout - Leads
+# Reddit Leads
 
 ## Lead 1
-**Subreddit:** r/smallbusinessowner
-**Traffic Rating:** Medium
-**Thread Topic:** Those of you who've tried automating parts of your business, what worked and what didn't?
+**Subreddit:** r/smallbusiness
+**Traffic Rating:** High
+**Thread Topic:** Zapier automations that worked for you?
 **Draft Reply:**
-Hey! For automation, one of the biggest pitfalls is relying on overly complex Zapier setups that break easily and get expensive. We've actually reviewed a few streamlined alternatives that might help. If you're struggling with customer support automation specifically, Answrr has been fantastic for keeping things simple without the robotic feel. Also, if you need to build custom internal tools to automate specific workflows without coding, Lovable is a solid option. I put together a full breakdown of these tools and what they're best at here: [Link to Review]. Hope that helps simplify things!
+Hey! Zapier is great but the costs can definitely add up quickly for small businesses. If you're looking to automate customer support specifically, you might want to check out **Answrr**. It handles a lot of the common inquiries automatically without needing to daisy-chain a bunch of Zapier zaps together. We actually wrote a detailed review on how it compares to standard automation flows here: [Link to our Answrr review]. Might be worth a look to save on those monthly subscription fees!
 
 ## Lead 2
 **Subreddit:** r/smallbusiness
 **Traffic Rating:** High
 **Thread Topic:** Which AI tool are you using to generate product images for your Shopify store?
 **Draft Reply:**
-Finding the right balance between quality and scale for product images is tough. While there are a lot of scattered tools out there, if you are looking to repurpose media or automate your visual asset generation across the board, you might want to check out Munch. It's excellent for taking existing content and optimizing it for your store and social channels. We've done a deep dive into some of the top AI content and automation tools (including Munch) and how they fit into a small business workflow. You can check out the full review here: [Link to Review]. Let me know if you have questions on the setup!
+While image generation is huge for Shopify, if you're also doing video content for those products (like TikTok or Reels), **Munch** is a fantastic AI tool for automating video clips. It takes long-form content and automatically clips the best parts for social media. We did a full breakdown of how it helps e-commerce brands here: [Link to our Munch review]. For images specifically, there are some great standalone tools, but getting your video workflow automated will save you hours every week!
