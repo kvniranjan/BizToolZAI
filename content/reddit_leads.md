@@ -1,15 +1,15 @@
-# Reddit Leads
+# Reddit Opportunity Leads - 2026-05-12
 
 ## Lead 1
-**Subreddit:** r/smallbusiness
-**Traffic Rating:** High
-**Thread Topic:** Zapier automations that worked for you?
-**Draft Reply:**
-Hey! Zapier is great but the costs can definitely add up quickly for small businesses. If you're looking to automate customer support specifically, you might want to check out **Answrr**. It handles a lot of the common inquiries automatically without needing to daisy-chain a bunch of Zapier zaps together. We actually wrote a detailed review on how it compares to standard automation flows here: [Link to our Answrr review]. Might be worth a look to save on those monthly subscription fees!
+**Subreddit:** r/smallbusinessowner
+**Traffic Rating:** Medium
+**Thread Topic:** "Those of you who've tried automating parts of your business, what worked and what didn't?"
+**Draft:**
+> Hey! We found that automating repetitive customer inquiries had the biggest impact for us without losing that personal touch. We’ve been using a tool called Answrr that handles a lot of the initial back-and-forth automatically, freeing up time for actual fulfillment. It took some trial and error, but setting boundaries on what the AI handles vs. what goes to a human was the game changer. We wrote a breakdown on our experience and how to set it up over at [Link to our Answrr Review] if you're curious!
 
 ## Lead 2
 **Subreddit:** r/smallbusiness
 **Traffic Rating:** High
-**Thread Topic:** Which AI tool are you using to generate product images for your Shopify store?
-**Draft Reply:**
-While image generation is huge for Shopify, if you're also doing video content for those products (like TikTok or Reels), **Munch** is a fantastic AI tool for automating video clips. It takes long-form content and automatically clips the best parts for social media. We did a full breakdown of how it helps e-commerce brands here: [Link to our Munch review]. For images specifically, there are some great standalone tools, but getting your video workflow automated will save you hours every week!
+**Thread Topic:** "Zapier automations that worked for you?"
+**Draft:**
+> Zapier is great, but we actually moved away from heavy Zapier flows for some of our marketing tasks because they got too complex and expensive. For example, for social media content generation, instead of a multi-step Zapier automation, we just started using Munch. It automatically pulls clips from our long-form video content and optimizes them for different platforms. Saves us the headache of maintaining broken Zaps. I actually did a full review on our automated workflow with it here: [Link to our Munch Review].
