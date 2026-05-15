@@ -1,15 +1,21 @@
-# Reddit Leads Drafts
+# Reddit Leads - AI Automation Tools
 
 ## Lead 1
-**Subreddit:** r/SaaS
-**Thread Topic:** AI tools actually worth paying for as an early-stage startup (what our 4-person team kept vs cut)
+**Subreddit:** r/smallbusiness
 **Traffic Rating:** High
-**Draft Reply:** 
-Great list! For early-stage startups, keeping the stack lean is critical. One area that often gets overlooked is customer support automation before scaling up the team. Have you guys checked out Answrr? We recently reviewed it and found it handles repetitive inquiries surprisingly well without feeling too robotic. Also, if you're rapid-prototyping new features or internal dashboards, Lovable has been a game-changer for moving fast. 
+**Thread Topic:** Zapier automations that worked for you? / Alternatives to pricey Zapier subscriptions
+**URL:** https://www.reddit.com/r/smallbusiness/comments/xdmp6v/zapier_automations_that_worked_for_you/
+
+**Draft Reply:**
+> If you're finding Zapier too expensive or complex for simple data syncing, I've seen a lot of businesses move towards building their own lightweight internal tools. Instead of paying monthly for endless Zaps, you can use AI builders to create exactly what you need. We recently reviewed **Lovable**, which lets you generate custom dashboards and basic automations just by describing them in plain English. It can often replace a whole stack of pricey subscriptions if you just need to move leads around or manage approvals. Check out our full review on how to set it up here: [Link to Lovable Review]
+
+---
 
 ## Lead 2
-**Subreddit:** r/ChatGPT
-**Thread Topic:** Looking for an AI tool to automaticaly reply to customers questions
-**Traffic Rating:** High
+**Subreddit:** r/smallbusinessowner
+**Traffic Rating:** Medium
+**Thread Topic:** Those of you who've tried automating parts of your business, what worked and what didn't?
+**URL:** https://www.reddit.com/r/smallbusinessowner/comments/1sroewx/those_of_you_whove_tried_automating_parts_of_your/
+
 **Draft Reply:**
-If you're looking for an automated customer support solution, I highly recommend checking out Answrr. We recently did a full review on it, and it excels exactly at this use case—automatically categorizing and replying to common customer questions while seamlessly handing off the complex ones to a human. You can plug it into your existing knowledge base so it responds accurately based on your actual docs.
+> You made a great point about needing an approval queue and visibility—blind automations can definitely backfire. For customer-facing tasks, having a human-in-the-loop is crucial. If you're looking into automating customer support specifically while keeping that human oversight, **Answrr** has been doing a really solid job. It handles the repetitive queries but makes it easy to step in when an exception occurs. We did a deep dive on how to implement it safely without frustrating your customers here: [Link to Answrr Review]

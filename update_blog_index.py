@@ -1,26 +1,29 @@
-import re
+import sys
 
-with open('blog/index.html', 'r') as f:
+with open("blog/index.html", "r") as f:
     content = f.read()
 
 card_html = """
-            <a href="deepbrain-ai.html" class="bg-card border border-border p-6 rounded-2xl shadow-subtle hover:shadow-hover transition-all group flex flex-col h-full">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-xs font-bold text-primary uppercase tracking-wider">Video Creators</span>
-                    <img src="https://logo.clearbit.com/deepbrain.io?size=64" onerror="this.style.display='none'" class="w-8 h-8 rounded-md shadow-sm border border-border object-cover" alt="Deepbrain AI Logo">
+        <div class="mb-8">
+            <a href="pictory-ai-2026-05-15.html" class="bg-card border border-border p-6 rounded-2xl shadow-subtle hover:shadow-hover transition-all group flex flex-col h-full">
+                <div class="flex items-center gap-4 mb-4">
+                    <img src="https://logo.clearbit.com/pictory.ai?size=64" alt="Pictory Logo" class="w-12 h-12 rounded-lg border border-border shadow-sm group-hover:scale-105 transition-transform" onerror="this.style.display='none'">
+                    <h3 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Pictory AI Review (2026): Is It the Best AI Video Generator?</h3>
                 </div>
-                <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">Deepbrain AI Review 2026: The Best AI Video Generator?</h3>
-                <p class="text-muted-foreground text-sm mb-6 flex-grow">Discover how Deepbrain AI can scale your video production with AI avatars and text-to-video capabilities.</p>
-                <div class="flex justify-between items-center text-sm font-semibold text-secondary pt-4 border-t border-border">
-                    <span>📖 3 min read</span>
-                    <span>🚀 New</span>
+                <p class="text-muted-foreground flex-grow mb-4">Discover how Pictory AI can turn your scripts and blog posts into high-quality videos in minutes. Read our full review and find out if it's worth the price in 2026.</p>
+                <div class="mt-auto flex items-center text-primary font-semibold text-sm">
+                    Read Review <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
                 </div>
             </a>
+        </div>
 """
 
-new_content = content.replace('<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="toolsGrid">', '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="toolsGrid">' + card_html)
-
-with open('blog/index.html', 'w') as f:
-    f.write(new_content)
-
-print("Updated blog/index.html")
+idx = content.find('<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="toolsGrid">')
+if idx != -1:
+    insert_idx = content.find('>', idx) + 1
+    new_content = content[:insert_idx] + card_html + content[insert_idx:]
+    with open("blog/index.html", "w") as f:
+        f.write(new_content)
+    print("Done")
+else:
+    print("Not found")
