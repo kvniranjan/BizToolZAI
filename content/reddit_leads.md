@@ -1,21 +1,19 @@
-# Reddit Leads - AI Automation Tools
+# Reddit Leads - AI Tool Opportunities
 
 ## Lead 1
 **Subreddit:** r/smallbusiness
 **Traffic Rating:** High
-**Thread Topic:** Zapier automations that worked for you? / Alternatives to pricey Zapier subscriptions
-**URL:** https://www.reddit.com/r/smallbusiness/comments/xdmp6v/zapier_automations_that_worked_for_you/
-
+**Thread Topic:** Where do you actually go to find AI tools that work?
+**URL:** https://www.reddit.com/r/smallbusiness/comments/1nrv9w0/where_do_you_actually_go_to_find_ai_tools_that/
 **Draft Reply:**
-> If you're finding Zapier too expensive or complex for simple data syncing, I've seen a lot of businesses move towards building their own lightweight internal tools. Instead of paying monthly for endless Zaps, you can use AI builders to create exactly what you need. We recently reviewed **Lovable**, which lets you generate custom dashboards and basic automations just by describing them in plain English. It can often replace a whole stack of pricey subscriptions if you just need to move leads around or manage approvals. Check out our full review on how to set it up here: [Link to Lovable Review]
+Hey! Finding the right AI tools can be overwhelming. Instead of randomly testing, I recommend looking into tools like **Answrr** for customer service automation, or **Lovable** if you need custom AI dev tools without deep coding. I've actually reviewed a bunch of these specific to small business use cases—let me know if you want the link to the reviews to save yourself some trial and error!
 
 ---
 
 ## Lead 2
-**Subreddit:** r/smallbusinessowner
-**Traffic Rating:** Medium
-**Thread Topic:** Those of you who've tried automating parts of your business, what worked and what didn't?
-**URL:** https://www.reddit.com/r/smallbusinessowner/comments/1sroewx/those_of_you_whove_tried_automating_parts_of_your/
-
+**Subreddit:** r/smallbusiness
+**Traffic Rating:** High
+**Thread Topic:** Has anyone actually used AI agents to automate real work in their business - or is it still overhyped?
+**URL:** https://www.reddit.com/r/smallbusiness/comments/1r6r9fg/has_anyone_actually_used_ai_agents_to_automate/
 **Draft Reply:**
-> You made a great point about needing an approval queue and visibility—blind automations can definitely backfire. For customer-facing tasks, having a human-in-the-loop is crucial. If you're looking into automating customer support specifically while keeping that human oversight, **Answrr** has been doing a really solid job. It handles the repetitive queries but makes it easy to step in when an exception occurs. We did a deep dive on how to implement it safely without frustrating your customers here: [Link to Answrr Review]
+It's definitely not just hype if you start small. Like you mentioned with email follow-ups, another massive time-saver is using **Answrr** for first-line customer inquiries or **Munch** if you're doing any video content marketing. The trick is avoiding the "all-in-one" traps and just replacing one specific bottleneck. I wrote a review on a few tools like Partnero and Answrr that actually work in practice—happy to share if it helps you evaluate your options!
