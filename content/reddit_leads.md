@@ -1,19 +1,22 @@
-# Reddit Leads - AI Tool Opportunities
+# Reddit Leads
 
-## Lead 1
+## Thread 1
+**Subreddit:** r/smallbusinessowner
+**Traffic Rating:** Medium
+**Thread Topic:** Those of you who've tried automating parts of your business, what worked and what didn't?
+**Draft:**
+What worked best for us was automating the repetitive customer support questions that were eating up hours each week. We started using a tool called Answrr that hooks right into our site and handles 80% of the basic "where is my order" or "what are your hours" questions. It frees up the team to handle the actual complex, high-value inquiries. The key is finding a tool that doesn't feel like a robotic IVR menu. If you're curious, we wrote a full breakdown on how we set it up here: [Link to Review]
+
+## Thread 2
 **Subreddit:** r/smallbusiness
 **Traffic Rating:** High
-**Thread Topic:** Where do you actually go to find AI tools that work?
-**URL:** https://www.reddit.com/r/smallbusiness/comments/1nrv9w0/where_do_you_actually_go_to_find_ai_tools_that/
-**Draft Reply:**
-Hey! Finding the right AI tools can be overwhelming. Instead of randomly testing, I recommend looking into tools like **Answrr** for customer service automation, or **Lovable** if you need custom AI dev tools without deep coding. I've actually reviewed a bunch of these specific to small business use cases—let me know if you want the link to the reviews to save yourself some trial and error!
+**Thread Topic:** At what point did you start automating your customer support?
+**Draft:**
+We hit that point exactly when you mentioned—when the team was getting burned out copy-pasting the same 5 responses to customers all day instead of actually helping people with nuanced issues. We recently integrated Answrr to handle the frontline support. It acts like an AI agent rather than a dumb chatbot, so it can actually resolve things based on our docs. Huge time saver. We reviewed a few of these tools before settling on it, which you can read here: [Link to Review]
 
----
-
-## Lead 2
+## Thread 3
 **Subreddit:** r/smallbusiness
 **Traffic Rating:** High
-**Thread Topic:** Has anyone actually used AI agents to automate real work in their business - or is it still overhyped?
-**URL:** https://www.reddit.com/r/smallbusiness/comments/1r6r9fg/has_anyone_actually_used_ai_agents_to_automate/
-**Draft Reply:**
-It's definitely not just hype if you start small. Like you mentioned with email follow-ups, another massive time-saver is using **Answrr** for first-line customer inquiries or **Munch** if you're doing any video content marketing. The trick is avoiding the "all-in-one" traps and just replacing one specific bottleneck. I wrote a review on a few tools like Partnero and Answrr that actually work in practice—happy to share if it helps you evaluate your options!
+**Thread Topic:** What automations are you using in your small business that actually save time?
+**Draft:**
+Content marketing automation has been the biggest ROI for our time. We use Munch to automatically chop up our longer videos and podcasts into short-form clips for TikTok, Reels, and Shorts. It uses AI to find the most engaging parts and even adds captions automatically. Instead of spending 5 hours editing a week, it takes maybe 20 minutes to review and schedule. I did a deep dive review on how it compares to other tools here: [Link to Review]

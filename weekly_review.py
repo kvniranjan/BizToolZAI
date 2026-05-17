@@ -6,6 +6,7 @@ Analyzes video performance and generates actionable recommendations.
 """
 import json, os
 from datetime import datetime
+from config import GEMINI_KEY
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
